@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -21,26 +22,61 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+/*
+ * Clase principal de la interfaz gráfica, se inicia el programa aquí y la ventana del editor
+ * se programó en esta clase
+ */
 
 public class Main extends Application {
 	
-	VBox actionButtons;
+	//Widgets y variables del programa
+	VBox actionButtons,codePane, warningPane;
 	Stage window;
 	TextArea codeArea, warningArea;
 	FileManager fileManager = new FileManager();
 	String currFilePath;
+	Integer textAreaHeight = 300;
 	
+	/*
+	 * En esta función se inicia el programa, genera la primer ventana junto con todos
+	 * los widgets presente en esta
+	 * Entradas: primaryStage es la primera ventana, que luego se renombra con window para ser más específicos
+	 * Salidas: Ninguna, solo ejecuta el programa
+	 * Restricciones: Deben instalar la librería javafx y configurar el proyecto para que pueda correrlo
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 	
 		window = primaryStage;
+		
+		//Main pane
 		BorderPane root = new BorderPane();
 		
+		//CodePane widgets
+		
+		codePane = new VBox(10);
+		codePane.setPadding(new Insets(10,10,10,10));
+		
+		Label codeAreaLabel = new Label("Editor");
 		codeArea = new TextArea();
-		root.setCenter(codeArea);
+		codeArea.setPrefHeight(textAreaHeight);
+		
+		codePane.getChildren().addAll(codeAreaLabel, codeArea);
+		root.setCenter(codePane);
+		
+		//WarningPane widgets
+		
+		warningPane = new VBox(10);
+		warningPane.setPadding(new Insets(10,10,10,10));
+		
+		Label warningAreaLabel = new Label("Warnings!");
 		warningArea = new TextArea();
 		warningArea.setPrefWidth(200);
-		root.setRight(warningArea);
+		warningArea.setPrefHeight(textAreaHeight);
+		warningArea.setWrapText(true);
+		
+		warningPane.getChildren().addAll(warningAreaLabel, warningArea);
+		root.setRight(warningPane);
 		
 		actionButtons = new VBox(10);
 		actionButtons.setPadding(new Insets(10,10,10,10));
@@ -58,17 +94,20 @@ public class Main extends Application {
 		save.setOnAction(e ->  saveFile(codeArea.getText()));
 		fileMenu.getItems().add(save);
 		
-		//Main menu bar
+		//Barra superior de File
 		MenuBar menuBar = new MenuBar();
 		menuBar.getMenus().addAll(fileMenu);
 		root.setTop(menuBar);
 		
+		//Botones
 		Button executeButton = new Button("Ejecutar");
 		executeButton.setOnAction(e -> executeCode());
 		Button compileButton = new Button("Compilar");
 		compileButton.setOnAction(e -> compileCode());
+		Button printASTButton = new Button("Imprimir AST");
+		printASTButton.setOnAction(e -> printAST());
 		
-		actionButtons.getChildren().addAll(executeButton, compileButton);
+		actionButtons.getChildren().addAll(executeButton, compileButton, printASTButton);
 		root.setLeft(actionButtons);
 		
 		Scene scene = new Scene(root,800,400);
@@ -80,10 +119,20 @@ public class Main extends Application {
 		
 	}
 	
+	/*
+	 * Método main que carga javafx
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
+	/*
+	 * Abre un archivo desde el explorador de windows, tiene que ser un .txt aunque luego
+	 * hago un formato especifico para el compilador y evitar errores
+	 * Entradas: Ninguna
+	 * Salidas: Ninguna, abre o no abre el archivo
+	 * Restricciones: El archivo a abrir debe ser un .txt
+	 */
 	private void openFile() {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open Resource File");
@@ -101,6 +150,15 @@ public class Main extends Application {
 		
 	}
 	
+	/*
+	 * Guarda el contenidod el editor en el archivo correspondiente
+	 * Si no se ha especificado un fichero al cual guardar, abre el explorador de archivos
+	 * y pide guardarlo, guardar archivo como .txt
+	 * Si ya se abrió un archivo, nada más lo sobreescribe con el contenido del editor
+	 * Entradas: content (String): Contenido del editor de código
+	 * Salidas: -
+	 * Restricciones: Guardar archivo como .txt
+	 */
 	private void saveFile(String content) {
 		
 		if(!fileManager.writeFile(currFilePath, content)) {
@@ -131,14 +189,28 @@ public class Main extends Application {
 		
 	}
 	
+	/*
+	 * Función que compila el código con el contenido del editor
+	 */
 	private void compileCode() {
-		System.out.println("Compilando");
+		System.out.println("Compilando...");
 		System.out.println(codeArea.getText());
 	}
 	
+	/*
+	 * Función que compila el código con el contenido del editor y luego trata de ejecutarlo
+	 */
 	private void executeCode() {
 		compileCode();
-		System.out.println("Ejecutando");
+		System.out.println("Ejecutando...");
+	}
+	
+	/*
+	 * Función que muestra el AST generado por el compilador
+	 */
+	
+	private void printAST() {
+		System.out.println("Imprimiendo AST...");
 	}
 	
 }
