@@ -21,6 +21,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import tortuga.Lector;
 
 /*
  * Clase principal de la interfaz gráfica, se inicia el programa aquí y la ventana del editor
@@ -36,6 +37,7 @@ public class Main extends Application {
 	FileManager fileManager = new FileManager();
 	String currFilePath;
 	Integer textAreaHeight = 300;
+	Lector l;
 	
 	/*
 	 * En esta función se inicia el programa, genera la primer ventana junto con todos
@@ -109,7 +111,9 @@ public class Main extends Application {
 		
 		actionButtons.getChildren().addAll(executeButton, compileButton, printASTButton);
 		root.setLeft(actionButtons);
-		
+
+		l=new Lector();
+
 		Scene scene = new Scene(root,800,400);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		window.setTitle("LogoTec");
@@ -195,6 +199,9 @@ public class Main extends Application {
 	private void compileCode() {
 		System.out.println("Compilando...");
 		System.out.println(codeArea.getText());
+
+
+
 	}
 	
 	/*
@@ -203,6 +210,7 @@ public class Main extends Application {
 	private void executeCode() {
 		compileCode();
 		System.out.println("Ejecutando...");
+		l.Texto(codeArea.getText().split("\n"));
 	}
 	
 	/*
