@@ -1,4 +1,4 @@
-// Generated from /home/chago/Documents/GitHub/LogoTEC/src/simple.g4 by ANTLR 4.9
+// Generated from /home/chago/Documents/GitHub/LogoTEC/simple.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

@@ -1,6 +1,6 @@
 import java.awt.*;
-import java.util.Locale;
 import java.util.Scanner;
+import java.io.IOException
 
 public class Main {
     private  static Scanner scanner= new Scanner(System.in);
@@ -8,6 +8,8 @@ public class Main {
     private static Turtle t = new Turtle(w, 0,0);
     private static String tortuga ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwOHiqKT5NUVs1l1diJa9PjxTgx5FwP38qNw&usqp=CAU";
     static boolean goma=false;
+
+    private static final String EXTENSION = "txt";
 
     /**
      * Metodo para analizar los comandos introducidos
@@ -178,12 +180,22 @@ public class Main {
 
     public static void main(String[] args) {
 
+        String program = args.length > 1 ? args[1] : "test/test." + EXTENSION;
+        System.out.println("Interpretando el archivo " + program);
+
+        SimpleLexer lexer
+
+
+
+
+
+    /*
      t.drop(tortuga,50);
       System.out.println("INGRESE LOS MOVIMIENTOS DE LA TORTUGA");
       while(true) {
           String[] partes=scanner.nextLine().split(" ");
 
           Analizador(partes);
-      }
+      }*/
     }
 }
