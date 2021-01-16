@@ -1,0 +1,36 @@
+Index: src/simple.g4
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>grammar simple;\r\n\r\n/* Sentencia de un programa */\r\nprograma: PROGRAMA BRACKET_ABIERTO sentencia_logoTEC* BRACKET_CERRADO;\r\n\r\n/* Sentencias para funciones y ciclos */\r\nejecuta: DO PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;\r\nrepite: DO_N PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;\r\n\r\nsi: IF condicion PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;\r\nsisino: IF_ELSE condicion\r\n            PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO\r\n            PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;\r\n\r\ndo_while: DO_WHILE PAR_CUAD_ABIERTO\r\n            sentencia_logoTEC* PAR_CUAD_CERRADO\r\n          PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO;\r\nmientras: PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO\r\n            PAR_CUAD_ABIERTO sentencia_logoTEC* PAR_CUAD_CERRADO;\r\n\r\nsentencia_logoTEC: ejecuta | repite | si | sisino | sentencia_general | do_while | mientras;\r\nsentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo\r\n                      | operacion_aritmetica | ordenes_listas | ordenes_tortuga;\r\n\r\n/* Sentencias de variables */\r\nordenes_variables: asignacion | reasignacion | incrementa;\r\nasignacion: HAZ ID dato;\r\nreasignacion: INIC ID ASIGNAR dato;\r\nincrementa: INC PAR_CUAD_ABIERTO ID PAR_CUAD_CERRADO\r\n            | INC PAR_CUAD_ABIERTO ID ENTERO PAR_CUAD_CERRADO;\r\n\r\n/* Sentencias logicas */\r\ncondicion: PAR_ABIERTO ordenes_logicas PAR_CERRADO;\r\nordenes_logicas: iguales | and | or | mayor | menor;\r\n\r\niguales: IGUALES dato dato;\r\nand: AND condicion condicion;\r\nor: OR condicion condicion;\r\nmayor: MAYOR numero numero;\r\nmenor: MENOR numero numero;\r\n\r\n/* Sentencias aritmeticas */\r\noperacion_aritmetica: suma | diferencia | producto | potencia | division | residuo\r\n                      | redondear | azar | menos;\r\nsuma: SUMA numero numero;\r\ndiferencia: DIFERENCIA numero numero*;\r\nproducto: PRODUCTO numero numero*;\r\npotencia: POTENCIA numero numero;\r\ndivision: DIVISION numero numero;\r\nresiduo: RESIDUO ENTERO ENTERO;\r\n\r\nredondear: REDONDEO numero;\r\nazar: AZAR ENTERO;\r\nmenos: MENOS ENTERO;\r\n\r\n/* Sentencias de listas */\r\nordenes_listas: elegir | elemento_n | largo | primero | ultimo;\r\nelegir: ELEMENTO_AZAR PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO;\r\nelemento_n: ELEMENTO_N ENTERO PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO;\r\nlargo: LONGITUD PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO;\r\nprimero: PRIMERO_LISTA PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO;\r\nultimo: ULTIMO PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO;\r\n\r\n/* Sentencias de la tortuga */\r\nordenes_tortuga: avanzar | retroceder | girar_derecha | girar_izquierda\r\n                 | ocultar_tortuga | aparecer_tortuga\r\n                 | definir_coord | definir_x | definir_y\r\n                 | definir_dir | rumbo | centrar | esperar;\r\n\r\navanzar: AVANZA ENTERO | AVANZA operacion_aritmetica;\r\nretroceder: RETROCEDE ENTERO | RETROCEDE operacion_aritmetica;\r\ngirar_derecha: GIRA_DERECHA ENTERO | GIRA_DERECHA operacion_aritmetica;\r\ngirar_izquierda: GIRA_IZQUIERDA ENTERO | GIRA_IZQUIERDA operacion_aritmetica;\r\nocultar_tortuga: OCULTA_TORTUGA;\r\naparecer_tortuga: APARECE_TORTUGA;\r\ndefinir_coord: PON_POS PAR_CUAD_ABIERTO ENTERO ENTERO PAR_CUAD_CERRADO\r\n               |  PON_POS ENTERO ENTERO;\r\ndefinir_x: PONX ENTERO;\r\ndefinir_y: PONY ENTERO;\r\ndefinir_dir: PON_RUMBO ENTERO;\r\nrumbo: RUMBO;\r\ncentrar: CENTRO;\r\nesperar: ESPERA ENTERO;\r\n\r\n/* Sentencias generales del lienzo */\r\nordenes_lienzo: borrar | dibujar | no_dibujar | definir_color | borra_pantalla;\r\n\r\nborrar: BORRADOR;\r\ndibujar: BAJA_LAPIZ;\r\nno_dibujar: SUBE_LAPIZ;\r\ndefinir_color: COLOR ID;\r\n\r\nborra_pantalla: BORRA_PANTALLA;\r\n\r\n/* Sentencias utilitarias */\r\ndato:  COMILLA ID COMILLA | TRUE | FALSE | ID | numero;\r\nnumero: ENTERO | operacion_aritmetica;\r\n\r\n\r\n/* *** Claves o terminales especificos de LogoTEC *** */\r\n\r\n// Claves generales\r\nPROGRAMA: 'Programa';\r\n\r\n// Claves para variables\r\nHAZ: 'Haz';\r\nINIC: 'INIC';\r\nINC: 'INC';\r\n\r\n// Claves para operaciones aritmeticas\r\nSUMA: 'Suma';\r\nRESIDUO: 'Resto';\r\nDIVISION: 'Division';\r\nPOTENCIA: 'Potencia';\r\nPRODUCTO: 'Producto';\r\nNEGATIVO: 'Menos';\r\nDIFERENCIA: 'Diferencia';\r\n\r\nREDONDEO: 'Redondea';\r\nAZAR: 'Azar';\r\n\r\n//Claves para operaciones logicas\r\nMAYOR: 'MayorQue?' | 'mayorque?';\r\nMENOR: 'MenorQue?' | 'menorque?';\r\nAND: 'Y';\r\nOR: 'O';\r\nIGUALES: 'iguales?' | 'Iguales?';\r\n\r\n// Claves para listas\r\nELEMENTO_AZAR: 'Elegir';\r\nLONGITUD: 'Cuenta';\r\nULTIMO: 'Ultimo' | 'ul';\r\nELEMENTO_N: 'Elemento';\r\nPRIMERO_LISTA: 'Pri' | 'Primero';\r\n\r\n// Claves para ciclos y funciones.\r\nWHILE: 'MIENTRAS' | 'HASTA';\r\nDO_WHILE: 'HAZ.MIENTRAS' | 'HAZ.HASTA';\r\n\r\nIF_ELSE: 'SISINO';\r\nIF: 'SI';\r\nDO_N: 'REPITE';\r\nDO: 'Ejecuta';\r\n\r\n// Claves para la tortuga\r\nAVANZA: 'AVANZA' | 'AV';\r\nRETROCEDE: 'RETROCEDE' | 'RE';\r\nESPERA: 'ESPERA' | 'Espera';\r\n\r\nGIRA_DERECHA: 'GiraDerecha' | 'GD';\r\nGIRA_IZQUIERDA: 'GiraIzquierda' | 'GI';\r\n\r\nOCULTA_TORTUGA: 'OcultaTortuga' | 'OT';\r\nAPARECE_TORTUGA: 'ApareceTortuga' | 'AT';\r\nCENTRO: 'Centro' | 'centro';\r\n\r\nPON_POS: 'PonPOS' | 'PonXY';\r\nPONX: 'PonX';\r\nPONY: 'PonY';\r\n\r\nPON_RUMBO: 'PonRumbo';\r\nRUMBO: 'Muestra RUMBO';\r\n\r\n\r\n// Claves para el lienzo.\r\nCOLOR: 'poncolorlapiz' | 'PonColorLapiz' | 'poncl' | 'PonCL';\r\nSUBE_LAPIZ: 'SubeLapiz' | 'subelapiz' | 'sb';\r\nBAJA_LAPIZ: 'BajaLapiz' | 'bajalapiz' | 'bl';\r\nBORRADOR: 'goma' | 'GOMA' | 'GO';\r\nBORRA_PANTALLA: 'borrapantalla';\r\n\r\n/* *** Valores logicos *** */\r\nTRUE: 'TRUE';\r\nFALSE: 'FALSE';\r\n\r\n// LOS QUE ME DEBO FUMAR ----------\r\nMAS: '+';\r\nMENOS: '-';\r\nMULTI: '*';\r\nDIV: '/';\r\nMY: '>';\r\nMN: '<';\r\nASIGNAR: '=';\r\n\r\n// -------------------------------\r\n\r\n\r\nNOT: '!';\r\n\r\n\r\nMYI: '>=';\r\nMNI: '<=';\r\nNEQ: '!=';\r\n\r\n\r\n\r\nBRACKET_ABIERTO: '{';\r\nBRACKET_CERRADO: '}';\r\nPAR_ABIERTO: '(';\r\nPAR_CERRADO: ')';\r\nPAR_CUAD_ABIERTO: '[';\r\nPAR_CUAD_CERRADO: ']';\r\n\r\nSEMICOLON: ';';\r\nDOS_PUNTOS: ':';\r\nCOMILLA: '\"';\r\n\r\nID: [a-zA-Z_][a-zA-Z0-9_]*;\r\n\r\nENTERO: [0-9]+;\r\n\r\nESPACIO_BLANCO: [ \\n\\t\\r]+ -> skip;\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/simple.g4 b/src/simple.g4
+--- a/src/simple.g4	(revision c93435232860ad779674cb4e4b43f1e8ad01b7b5)
++++ b/src/simple.g4	(date 1610577450709)
+@@ -67,6 +67,7 @@
+                  | definir_coord | definir_x | definir_y
+                  | definir_dir | rumbo | centrar | esperar;
+ 
++
+ avanzar: AVANZA ENTERO | AVANZA operacion_aritmetica;
+ retroceder: RETROCEDE ENTERO | RETROCEDE operacion_aritmetica;
+ girar_derecha: GIRA_DERECHA ENTERO | GIRA_DERECHA operacion_aritmetica;
+@@ -182,16 +183,13 @@
+ MN: '<';
+ ASIGNAR: '=';
+ 
+-// -------------------------------
+-
+-
+ NOT: '!';
+ 
+ 
+ MYI: '>=';
+ MNI: '<=';
+ NEQ: '!=';
+-
++// -------------------------------
+ 
+ 
+ BRACKET_ABIERTO: '{';
