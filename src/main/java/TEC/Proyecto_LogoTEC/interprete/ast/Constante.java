@@ -1,5 +1,6 @@
 package TEC.Proyecto_LogoTEC.interprete.ast;
 
+// Relacionada a dato.
 public class Constante implements ASTNode {
 	private Object valor;
 

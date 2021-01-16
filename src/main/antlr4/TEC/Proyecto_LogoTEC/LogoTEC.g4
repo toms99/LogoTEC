@@ -89,31 +89,34 @@ retroceder returns [ASTNode node]: RETROCEDE numero {$node = new TortugaRetroced
 girar_derecha returns [ASTNode node]: GIRA_DERECHA numero {$node = new TortugaGiraDerecha($numero.node);};
 girar_izquierda returns [ASTNode node]: GIRA_IZQUIERDA numero {$node = new TortugaGiraIzquierda($numero.node);};
 
-definir_coord returns [ASTNode node]: PON_POS PAR_CUAD_ABIERTO numero numero PAR_CUAD_CERRADO
-               |  PON_POS numero numero;
+definir_coord returns [ASTNode node]: PON_POS PAR_CUAD_ABIERTO n1 = numero {$node = $n1.node;} 
+															   n2 = numero {$node = new TortugaDefinirCoord($node, $n2.node);} 
+															   PAR_CUAD_CERRADO
+               						|  PON_POS n1 = numero {$node = $n1.node;} 
+						 					   n2 = numero {$node = new TortugaDefinirCoord($node, $n2.node);};
      
-definir_x returns [ASTNode node]: PONX numero {$node = $numero.node;};
-definir_y returns [ASTNode node]: PONY numero {$node = $numero.node;};
-definir_dir returns [ASTNode node]: PON_RUMBO numero {$node = $numero.node;};
+definir_x returns [ASTNode node]: PONX numero {$node = new TortugaDefinirX($numero.node);};
+definir_y returns [ASTNode node]: PONY numero {$node = new TortugaDefinirY($numero.node);};
+definir_dir returns [ASTNode node]: PON_RUMBO numero {$node = new TortugaDefinirDir($numero.node);};
 
-esperar returns [ASTNode node]: ESPERA numero {$node = $numero.node;};
+esperar returns [ASTNode node]: ESPERA numero {$node = new TortugaDefinirEsperar($numero.node);};
 
-ocultar_tortuga returns [ASTNode node]: OCULTA_TORTUGA;
-aparecer_tortuga returns [ASTNode node]: APARECE_TORTUGA;
+ocultar_tortuga returns [ASTNode node]: OCULTA_TORTUGA {$node = new TortugaOcultar();};
+aparecer_tortuga returns [ASTNode node]: APARECE_TORTUGA {$node = new TortugaAparecer();};
 
-rumbo returns [ASTNode node]: RUMBO;
-centrar returns [ASTNode node]: CENTRO;
+rumbo returns [ASTNode node]: RUMBO {$node = new TortugaRumbo();};
+centrar returns [ASTNode node]: CENTRO {$node = new TortugaCentro();};
 
 
 /* Sentencias generales del lienzo */
 ordenes_lienzo: borrar | dibujar | no_dibujar | definir_color | borra_pantalla;
 
-borrar: BORRADOR;
-dibujar: BAJA_LAPIZ;
-no_dibujar: SUBE_LAPIZ;
-definir_color: COLOR ID;
+borrar returns [ASTNode node]: BORRADOR {$node = new LienzoBorrar();};
+dibujar returns [ASTNode node]: BAJA_LAPIZ {$node = new LienzoDibujar();};
+no_dibujar returns [ASTNode node]: SUBE_LAPIZ {$node = new LienzoNoDibujar();};
+definir_color returns [ASTNode node]: COLOR ID;
 
-borra_pantalla: BORRA_PANTALLA;
+borra_pantalla returns [ASTNode node]: BORRA_PANTALLA {$node = new LienzoBorrarPantalla();};
 
 /* Sentencias utilitarias */
 dato returns [ASTNode node]:  COMILLA ID COMILLA {$node = new Constante(String.parseString($ID.text));}

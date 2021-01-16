@@ -1,10 +1,10 @@
  package TEC.Proyecto_LogoTEC.interprete.ast;
 
-public class TortugaGiraIzquierda implements ASTNode {
+public class TortugaDefinirX implements ASTNode {
 	private ASTNode comando;
 	
 	
-	public TortugaGiraIzquierda(ASTNode comando) {
+	public TortugaDefinirX(ASTNode comando) {
 		super();
 		this.comando = comando;
 	}
@@ -12,8 +12,8 @@ public class TortugaGiraIzquierda implements ASTNode {
 
 	@Override
 	public Object execute() {
-		int distancia = (int) comando.execute();
-		String texto = "giraizquierda " + String.valueOf(distancia);
+		int pos = (int) comando.execute();
+		String texto = "ponx " + String.valueOf(pos);
 		lector.Texto(texto.split("\n"));
 		return null;
 	}
