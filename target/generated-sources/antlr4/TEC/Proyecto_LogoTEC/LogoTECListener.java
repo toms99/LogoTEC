@@ -53,16 +53,6 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitElegir(@NotNull LogoTECParser.ElegirContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LogoTECParser#programa}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrograma(@NotNull LogoTECParser.ProgramaContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link LogoTECParser#programa}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrograma(@NotNull LogoTECParser.ProgramaContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#operacion_aritmetica}.
 	 * @param ctx the parse tree
 	 */

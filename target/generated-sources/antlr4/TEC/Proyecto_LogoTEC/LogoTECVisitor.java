@@ -40,12 +40,6 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElegir(@NotNull LogoTECParser.ElegirContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LogoTECParser#programa}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrograma(@NotNull LogoTECParser.ProgramaContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#operacion_aritmetica}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

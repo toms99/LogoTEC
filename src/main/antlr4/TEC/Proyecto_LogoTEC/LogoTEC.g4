@@ -84,20 +84,26 @@ ordenes_tortuga: avanzar | retroceder | girar_derecha | girar_izquierda
                  | definir_coord | definir_x | definir_y
                  | definir_dir | rumbo | centrar | esperar;
 
-avanzar returns [ASTNode node]: AVANZA ENTERO {$node = $ENTERO.node;} | AVANZA operacion_aritmetica {$node = $operacion_aritmetica.node;} ;
-retroceder: RETROCEDE ENTERO | RETROCEDE operacion_aritmetica;
-girar_derecha: GIRA_DERECHA ENTERO | GIRA_DERECHA operacion_aritmetica;
-girar_izquierda: GIRA_IZQUIERDA ENTERO | GIRA_IZQUIERDA operacion_aritmetica;
-ocultar_tortuga: OCULTA_TORTUGA;
-aparecer_tortuga: APARECE_TORTUGA;
-definir_coord: PON_POS PAR_CUAD_ABIERTO ENTERO ENTERO PAR_CUAD_CERRADO
-               |  PON_POS ENTERO ENTERO;
-definir_x: PONX ENTERO;
-definir_y: PONY ENTERO;
-definir_dir: PON_RUMBO ENTERO;
-rumbo: RUMBO;
-centrar: CENTRO;
-esperar: ESPERA ENTERO;
+avanzar returns [ASTNode node]: AVANZA numero {$node = new TortugaAvanza($numero.node);};
+retroceder returns [ASTNode node]: RETROCEDE numero {$node = new TortugaRetrocede($numero.node);};
+girar_derecha returns [ASTNode node]: GIRA_DERECHA numero {$node = new TortugaGiraDerecha($numero.node);};
+girar_izquierda returns [ASTNode node]: GIRA_IZQUIERDA numero {$node = new TortugaGiraIzquierda($numero.node);};
+
+definir_coord returns [ASTNode node]: PON_POS PAR_CUAD_ABIERTO numero numero PAR_CUAD_CERRADO
+               |  PON_POS numero numero;
+     
+definir_x returns [ASTNode node]: PONX numero {$node = $numero.node;};
+definir_y returns [ASTNode node]: PONY numero {$node = $numero.node;};
+definir_dir returns [ASTNode node]: PON_RUMBO numero {$node = $numero.node;};
+
+esperar returns [ASTNode node]: ESPERA numero {$node = $numero.node;};
+
+ocultar_tortuga returns [ASTNode node]: OCULTA_TORTUGA;
+aparecer_tortuga returns [ASTNode node]: APARECE_TORTUGA;
+
+rumbo returns [ASTNode node]: RUMBO;
+centrar returns [ASTNode node]: CENTRO;
+
 
 /* Sentencias generales del lienzo */
 ordenes_lienzo: borrar | dibujar | no_dibujar | definir_color | borra_pantalla;
@@ -110,8 +116,13 @@ definir_color: COLOR ID;
 borra_pantalla: BORRA_PANTALLA;
 
 /* Sentencias utilitarias */
-dato:  COMILLA ID COMILLA | TRUE | FALSE | ID | numero;
-numero: ENTERO | operacion_aritmetica;
+dato returns [ASTNode node]:  COMILLA ID COMILLA {$node = new Constante(String.parseString($ID.text));}
+							  | TRUE {$node = new Constante(Boolean.parseBoolean($TRUE.text));}
+							  | FALSE {$node = new Constante(Boolean.parseBoolean($FALSE.text));} 
+							  | ID 
+							  | numero {$node = $numero.node;};
+numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($ENTERO.text));}
+						      | operacion_aritmetica {$node = $numero.node;} ;
 
 
 /* *** Claves o terminales especificos de LogoTEC *** */

@@ -50,13 +50,6 @@ public class LogoTECBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrograma(@NotNull LogoTECParser.ProgramaContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

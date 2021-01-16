@@ -69,18 +69,6 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrograma(@NotNull LogoTECParser.ProgramaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrograma(@NotNull LogoTECParser.ProgramaContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { }
 	/**
 	 * {@inheritDoc}
