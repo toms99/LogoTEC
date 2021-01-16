@@ -1,5 +1,9 @@
 // Generated from LogoTEC.g4 by ANTLR 4.4
 package TEC.Proyecto_LogoTEC;
+
+	import java.util.Map;
+	import java.util.HashMap;
+
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 

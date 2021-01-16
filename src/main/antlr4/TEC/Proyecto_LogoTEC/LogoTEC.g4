@@ -1,7 +1,24 @@
 grammar LogoTEC;
 
+@parser:: header {
+	import java.util.Map;
+	import java.util.HashMap;
+}
+
+@parser::members{
+	Map<String, Object> tablaSimbolos = new HashMap<String, Object>(); 
+}
+
+
 /* Sentencia de un programa */
-programa: PROGRAMA BRACKET_ABIERTO sentencia_logoTEC* BRACKET_CERRADO;
+programa: {
+	List<ASTNode> body = new ArrayList<ASTNode>();
+} (sentencia_logoTEC {body.add($sentencia_logoTEC);})* 
+{
+	for (ASTNode n: body) {
+		n.execute();
+	}
+};
 
 /* Sentencias para funciones y ciclos */
 ejecuta: DO PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
@@ -67,7 +84,7 @@ ordenes_tortuga: avanzar | retroceder | girar_derecha | girar_izquierda
                  | definir_coord | definir_x | definir_y
                  | definir_dir | rumbo | centrar | esperar;
 
-avanzar: AVANZA ENTERO | AVANZA operacion_aritmetica;
+avanzar returns [ASTNode node]: AVANZA ENTERO {$node = $ENTERO.node;} | AVANZA operacion_aritmetica {$node = $operacion_aritmetica.node;} ;
 retroceder: RETROCEDE ENTERO | RETROCEDE operacion_aritmetica;
 girar_derecha: GIRA_DERECHA ENTERO | GIRA_DERECHA operacion_aritmetica;
 girar_izquierda: GIRA_IZQUIERDA ENTERO | GIRA_IZQUIERDA operacion_aritmetica;

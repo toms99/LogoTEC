@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.util.List;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -222,16 +222,25 @@ public class Main extends Application {
 
 		System.out.println("Interpreting file " + program);
 
-		LogoTECLexer lexer;
 		try {
+			LogoTECLexer lexer;
 			lexer = new LogoTECLexer(new ANTLRFileStream(program));
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			LogoTECParser parser = new LogoTECParser(tokens);
-
+			ErrorManager errorManager = new ErrorManager(warningArea);
+			
+			parser.removeErrorListeners(); // remove ConsoleErrorListener
+	        
+	        parser.addErrorListener(errorManager); // add ours
+	        //
+	        parser.programa(); // parse as usual
+	        
 			LogoTECParser.ProgramaContext tree = parser.programa();
+			System.out.println(tree.toStringTree(parser));
 
 			LogoTECCustomVisitor visitor = new LogoTECCustomVisitor();
 			visitor.visit(tree);
+			
 			
 			System.out.println("Interpretation finished");
 		} catch (IOException e) {
