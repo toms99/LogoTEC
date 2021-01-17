@@ -85,7 +85,7 @@ public class LogoTECParser extends Parser {
 
 
 		Map<String, Object> tablaSimbolos = new HashMap<String, Object>(); 
-		Lector lectorTortuga = new Lector();
+		Lector lectorTortuga;
 
 	public LogoTECParser(TokenStream input) {
 		super(input);

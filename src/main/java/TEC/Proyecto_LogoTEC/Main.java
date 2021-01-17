@@ -49,7 +49,6 @@ public class Main extends Application {
 	FileManager fileManager = new FileManager();
 	String currFilePath;
 	Integer textAreaHeight = 300;
-	Lector l;
 	
 	/*
 	 * En esta función se inicia el programa, genera la primer ventana junto con todos
@@ -124,7 +123,6 @@ public class Main extends Application {
 		actionButtons.getChildren().addAll(executeButton, compileButton, printASTButton);
 		root.setLeft(actionButtons);
 
-		l=new Lector();
 
 		Scene scene = new Scene(root,800,400);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -261,7 +259,7 @@ public class Main extends Application {
 	private void executeCode()  {
 		compileCode();
 		System.out.println("Ejecutando...");
-		l.Texto(codeArea.getText().split("\n"));
+		//l.Texto(codeArea.getText().split("\n"));
 	}
 	
 	/*

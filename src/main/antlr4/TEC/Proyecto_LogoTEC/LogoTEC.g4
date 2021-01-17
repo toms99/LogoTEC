@@ -13,7 +13,7 @@ grammar LogoTEC;
 @parser::members{
 
 	Map<String, Object> tablaSimbolos = new HashMap<String, Object>(); 
-	Lector lectorTortuga = new Lector();
+	Lector lectorTortuga;
 }
 
 
@@ -173,6 +173,7 @@ numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($E
 /* *** Claves o terminales especificos de LogoTEC *** */
 
 // Claves generales
+
 PROGRAMA: 'Programa';
 
 // Claves para variables
