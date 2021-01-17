@@ -1,5 +1,9 @@
  package TEC.Proyecto_LogoTEC.interprete.ast;
 
+import java.util.Map;
+
+import TEC.Proyecto_LogoTEC.tortuga.Lector;
+
 public class TortugaAvanza implements ASTNode {
 	private ASTNode comando;
 	
@@ -11,8 +15,8 @@ public class TortugaAvanza implements ASTNode {
 
 
 	@Override
-	public Object execute() {
-		int distancia = (int) comando.execute();
+	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
+		int distancia = (int) comando.execute(null, null);
 		String texto = "avanza " + String.valueOf(distancia);
 		lector.Texto(texto.split("\n"));
 		return null;
