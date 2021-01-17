@@ -29,12 +29,19 @@ programa returns [ASTNode node]: {
 		}
 };
 
-/* Sentencias para funciones y ciclos   
+/* Sentencias para funciones y ciclos */
 
-ejecuta: DO PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
-repite: DO_N PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
+ejecuta returns [ASTNode node]: DO PAR_CUAD_ABIERTO {
+						List<ASTNode> body = new ArrayList<ASTNode>();
+						} (ordenes_tortuga {body.add($ordenes_tortuga.node);})*  PAR_CUAD_CERRADO 
+						{$node = new Ejecuta(body);};
 
-si: IF condicion PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
+repite returns [ASTNode node]: DO_N numero PAR_CUAD_ABIERTO {
+						List<ASTNode> body = new ArrayList<ASTNode>();
+						} (ordenes_tortuga {body.add($ordenes_tortuga.node);})* PAR_CUAD_CERRADO
+						{$node = new Repite(body, $numero.node);};
+
+/*si: IF condicion PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
 sisino: IF_ELSE condicion
             PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO
             PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
@@ -50,7 +57,9 @@ sentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo
                       | operacion_aritmetica | ordenes_listas | ordenes_tortuga; */
                       
 sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tortuga.node;}
-										| ordenes_variables {$node = $ordenes_variables.node;};             
+										| ordenes_variables {$node = $ordenes_variables.node;}
+										| ejecuta {$node = $ejecuta.node;}
+										| repite {$node = $repite.node;};             
 
 // Sentencias de variables 
 ordenes_variables returns [ASTNode node]: asignacion {$node = $asignacion.node;}
@@ -261,8 +270,8 @@ DO_WHILE: 'HAZ.MIENTRAS' | 'HAZ.HASTA';
 
 IF_ELSE: 'SISINO';
 IF: 'SI';
-DO_N: 'REPITE';
-DO: 'Ejecuta';
+DO_N: 'REPITE' | 'Repite' | 'repite';
+DO: 'Ejecuta' | 'EJECUTA' | 'ejecuta';
 
 // Claves para la tortuga
 AVANZA: 'AVANZA' | 'AV' | 'avanza';

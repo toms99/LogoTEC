@@ -1,4 +1,4 @@
-// Generated from LogoTEC.g4 by ANTLR 4.4
+// Generated from TEC\Proyecto_LogoTEC\LogoTEC.g4 by ANTLR 4.5.1
 package TEC.Proyecto_LogoTEC;
 
 
@@ -10,7 +10,6 @@ package TEC.Proyecto_LogoTEC;
 	import TEC.Proyecto_LogoTEC.tortuga.Lector;
 	import TEC.Proyecto_LogoTEC.interprete.ast.*;
 
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -28,306 +27,320 @@ public class LogoTECBaseVisitor<T> extends AbstractParseTreeVisitor<T> implement
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSuma(@NotNull LogoTECParser.SumaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrograma(LogoTECParser.ProgramaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAsignacion(@NotNull LogoTECParser.AsignacionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEjecuta(LogoTECParser.EjecutaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrimero(@NotNull LogoTECParser.PrimeroContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRepite(LogoTECParser.RepiteContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRedondear(@NotNull LogoTECParser.RedondearContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSentencia_logoTEC(LogoTECParser.Sentencia_logoTECContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNumero(@NotNull LogoTECParser.NumeroContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOrdenes_variables(LogoTECParser.Ordenes_variablesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAzar(@NotNull LogoTECParser.AzarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAsignacion(LogoTECParser.AsignacionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNo_dibujar(@NotNull LogoTECParser.No_dibujarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitReasignacion(LogoTECParser.ReasignacionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitElegir(@NotNull LogoTECParser.ElegirContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIncrementa(LogoTECParser.IncrementaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOrdenes_lienzo(@NotNull LogoTECParser.Ordenes_lienzoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitReferencia(LogoTECParser.ReferenciaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrograma(@NotNull LogoTECParser.ProgramaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOperacion_aritmetica(LogoTECParser.Operacion_aritmeticaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSuma(LogoTECParser.SumaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitProducto(@NotNull LogoTECParser.ProductoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDiferencia(LogoTECParser.DiferenciaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEsperar(@NotNull LogoTECParser.EsperarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitProducto(LogoTECParser.ProductoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDivision(@NotNull LogoTECParser.DivisionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPotencia(LogoTECParser.PotenciaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMenos(@NotNull LogoTECParser.MenosContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDivision(LogoTECParser.DivisionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDato(@NotNull LogoTECParser.DatoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitResiduo(LogoTECParser.ResiduoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDefinir_coord(@NotNull LogoTECParser.Definir_coordContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRedondear(LogoTECParser.RedondearContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLargo(@NotNull LogoTECParser.LargoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAzar(LogoTECParser.AzarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOrdenes_tortuga(@NotNull LogoTECParser.Ordenes_tortugaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMenos(LogoTECParser.MenosContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDefinir_dir(@NotNull LogoTECParser.Definir_dirContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOrdenes_listas(LogoTECParser.Ordenes_listasContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCentrar(@NotNull LogoTECParser.CentrarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitElegir(LogoTECParser.ElegirContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitElemento_n(LogoTECParser.Elemento_nContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRetroceder(@NotNull LogoTECParser.RetrocederContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLargo(LogoTECParser.LargoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUltimo(@NotNull LogoTECParser.UltimoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimero(LogoTECParser.PrimeroContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSentencia_logoTEC(@NotNull LogoTECParser.Sentencia_logoTECContext ctx) { return visitChildren(ctx); }
+	@Override public T visitUltimo(LogoTECParser.UltimoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOrdenes_tortuga(LogoTECParser.Ordenes_tortugaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOrdenes_listas(@NotNull LogoTECParser.Ordenes_listasContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAvanzar(LogoTECParser.AvanzarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAvanzar(@NotNull LogoTECParser.AvanzarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRetroceder(LogoTECParser.RetrocederContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRumbo(@NotNull LogoTECParser.RumboContext ctx) { return visitChildren(ctx); }
+	@Override public T visitGirar_derecha(LogoTECParser.Girar_derechaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBorra_pantalla(@NotNull LogoTECParser.Borra_pantallaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitGirar_izquierda(LogoTECParser.Girar_izquierdaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitGirar_derecha(@NotNull LogoTECParser.Girar_derechaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDefinir_coord(LogoTECParser.Definir_coordContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitResiduo(@NotNull LogoTECParser.ResiduoContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDefinir_x(LogoTECParser.Definir_xContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPotencia(@NotNull LogoTECParser.PotenciaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDefinir_y(LogoTECParser.Definir_yContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBorrar(@NotNull LogoTECParser.BorrarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDefinir_dir(LogoTECParser.Definir_dirContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDibujar(@NotNull LogoTECParser.DibujarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEsperar(LogoTECParser.EsperarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitElemento_n(@NotNull LogoTECParser.Elemento_nContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOcultar_tortuga(LogoTECParser.Ocultar_tortugaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDefinir_x(@NotNull LogoTECParser.Definir_xContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAparecer_tortuga(LogoTECParser.Aparecer_tortugaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRumbo(LogoTECParser.RumboContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDefinir_y(@NotNull LogoTECParser.Definir_yContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCentrar(LogoTECParser.CentrarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAparecer_tortuga(@NotNull LogoTECParser.Aparecer_tortugaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOrdenes_lienzo(LogoTECParser.Ordenes_lienzoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIncrementa(@NotNull LogoTECParser.IncrementaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBorrar(LogoTECParser.BorrarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitReferencia(@NotNull LogoTECParser.ReferenciaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDibujar(LogoTECParser.DibujarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitOcultar_tortuga(@NotNull LogoTECParser.Ocultar_tortugaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNo_dibujar(LogoTECParser.No_dibujarContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitGirar_izquierda(@NotNull LogoTECParser.Girar_izquierdaContext ctx) { return visitChildren(ctx); }
+	@Override public T visitBorra_pantalla(LogoTECParser.Borra_pantallaContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitDato(LogoTECParser.DatoContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitNumero(LogoTECParser.NumeroContext ctx) { return visitChildren(ctx); }
 }

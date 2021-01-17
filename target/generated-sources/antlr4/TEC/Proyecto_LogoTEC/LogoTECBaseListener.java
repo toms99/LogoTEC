@@ -1,4 +1,4 @@
-// Generated from LogoTEC.g4 by ANTLR 4.4
+// Generated from TEC\Proyecto_LogoTEC\LogoTEC.g4 by ANTLR 4.5.1
 package TEC.Proyecto_LogoTEC;
 
 
@@ -12,7 +12,6 @@ package TEC.Proyecto_LogoTEC;
 
 
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -27,552 +26,576 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSuma(@NotNull LogoTECParser.SumaContext ctx) { }
+	@Override public void enterPrograma(LogoTECParser.ProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSuma(@NotNull LogoTECParser.SumaContext ctx) { }
+	@Override public void exitPrograma(LogoTECParser.ProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAsignacion(@NotNull LogoTECParser.AsignacionContext ctx) { }
+	@Override public void enterEjecuta(LogoTECParser.EjecutaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAsignacion(@NotNull LogoTECParser.AsignacionContext ctx) { }
+	@Override public void exitEjecuta(LogoTECParser.EjecutaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrimero(@NotNull LogoTECParser.PrimeroContext ctx) { }
+	@Override public void enterRepite(LogoTECParser.RepiteContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrimero(@NotNull LogoTECParser.PrimeroContext ctx) { }
+	@Override public void exitRepite(LogoTECParser.RepiteContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRedondear(@NotNull LogoTECParser.RedondearContext ctx) { }
+	@Override public void enterSentencia_logoTEC(LogoTECParser.Sentencia_logoTECContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRedondear(@NotNull LogoTECParser.RedondearContext ctx) { }
+	@Override public void exitSentencia_logoTEC(LogoTECParser.Sentencia_logoTECContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNumero(@NotNull LogoTECParser.NumeroContext ctx) { }
+	@Override public void enterOrdenes_variables(LogoTECParser.Ordenes_variablesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNumero(@NotNull LogoTECParser.NumeroContext ctx) { }
+	@Override public void exitOrdenes_variables(LogoTECParser.Ordenes_variablesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAzar(@NotNull LogoTECParser.AzarContext ctx) { }
+	@Override public void enterAsignacion(LogoTECParser.AsignacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAzar(@NotNull LogoTECParser.AzarContext ctx) { }
+	@Override public void exitAsignacion(LogoTECParser.AsignacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNo_dibujar(@NotNull LogoTECParser.No_dibujarContext ctx) { }
+	@Override public void enterReasignacion(LogoTECParser.ReasignacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNo_dibujar(@NotNull LogoTECParser.No_dibujarContext ctx) { }
+	@Override public void exitReasignacion(LogoTECParser.ReasignacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElegir(@NotNull LogoTECParser.ElegirContext ctx) { }
+	@Override public void enterIncrementa(LogoTECParser.IncrementaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElegir(@NotNull LogoTECParser.ElegirContext ctx) { }
+	@Override public void exitIncrementa(LogoTECParser.IncrementaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrdenes_lienzo(@NotNull LogoTECParser.Ordenes_lienzoContext ctx) { }
+	@Override public void enterReferencia(LogoTECParser.ReferenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOrdenes_lienzo(@NotNull LogoTECParser.Ordenes_lienzoContext ctx) { }
+	@Override public void exitReferencia(LogoTECParser.ReferenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrograma(@NotNull LogoTECParser.ProgramaContext ctx) { }
+	@Override public void enterOperacion_aritmetica(LogoTECParser.Operacion_aritmeticaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrograma(@NotNull LogoTECParser.ProgramaContext ctx) { }
+	@Override public void exitOperacion_aritmetica(LogoTECParser.Operacion_aritmeticaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { }
+	@Override public void enterSuma(LogoTECParser.SumaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { }
+	@Override public void exitSuma(LogoTECParser.SumaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProducto(@NotNull LogoTECParser.ProductoContext ctx) { }
+	@Override public void enterDiferencia(LogoTECParser.DiferenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProducto(@NotNull LogoTECParser.ProductoContext ctx) { }
+	@Override public void exitDiferencia(LogoTECParser.DiferenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEsperar(@NotNull LogoTECParser.EsperarContext ctx) { }
+	@Override public void enterProducto(LogoTECParser.ProductoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEsperar(@NotNull LogoTECParser.EsperarContext ctx) { }
+	@Override public void exitProducto(LogoTECParser.ProductoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDivision(@NotNull LogoTECParser.DivisionContext ctx) { }
+	@Override public void enterPotencia(LogoTECParser.PotenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDivision(@NotNull LogoTECParser.DivisionContext ctx) { }
+	@Override public void exitPotencia(LogoTECParser.PotenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMenos(@NotNull LogoTECParser.MenosContext ctx) { }
+	@Override public void enterDivision(LogoTECParser.DivisionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMenos(@NotNull LogoTECParser.MenosContext ctx) { }
+	@Override public void exitDivision(LogoTECParser.DivisionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDato(@NotNull LogoTECParser.DatoContext ctx) { }
+	@Override public void enterResiduo(LogoTECParser.ResiduoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDato(@NotNull LogoTECParser.DatoContext ctx) { }
+	@Override public void exitResiduo(LogoTECParser.ResiduoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDefinir_coord(@NotNull LogoTECParser.Definir_coordContext ctx) { }
+	@Override public void enterRedondear(LogoTECParser.RedondearContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDefinir_coord(@NotNull LogoTECParser.Definir_coordContext ctx) { }
+	@Override public void exitRedondear(LogoTECParser.RedondearContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLargo(@NotNull LogoTECParser.LargoContext ctx) { }
+	@Override public void enterAzar(LogoTECParser.AzarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLargo(@NotNull LogoTECParser.LargoContext ctx) { }
+	@Override public void exitAzar(LogoTECParser.AzarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrdenes_tortuga(@NotNull LogoTECParser.Ordenes_tortugaContext ctx) { }
+	@Override public void enterMenos(LogoTECParser.MenosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOrdenes_tortuga(@NotNull LogoTECParser.Ordenes_tortugaContext ctx) { }
+	@Override public void exitMenos(LogoTECParser.MenosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDefinir_dir(@NotNull LogoTECParser.Definir_dirContext ctx) { }
+	@Override public void enterOrdenes_listas(LogoTECParser.Ordenes_listasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDefinir_dir(@NotNull LogoTECParser.Definir_dirContext ctx) { }
+	@Override public void exitOrdenes_listas(LogoTECParser.Ordenes_listasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCentrar(@NotNull LogoTECParser.CentrarContext ctx) { }
+	@Override public void enterElegir(LogoTECParser.ElegirContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCentrar(@NotNull LogoTECParser.CentrarContext ctx) { }
+	@Override public void exitElegir(LogoTECParser.ElegirContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx) { }
+	@Override public void enterElemento_n(LogoTECParser.Elemento_nContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx) { }
+	@Override public void exitElemento_n(LogoTECParser.Elemento_nContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRetroceder(@NotNull LogoTECParser.RetrocederContext ctx) { }
+	@Override public void enterLargo(LogoTECParser.LargoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRetroceder(@NotNull LogoTECParser.RetrocederContext ctx) { }
+	@Override public void exitLargo(LogoTECParser.LargoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUltimo(@NotNull LogoTECParser.UltimoContext ctx) { }
+	@Override public void enterPrimero(LogoTECParser.PrimeroContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUltimo(@NotNull LogoTECParser.UltimoContext ctx) { }
+	@Override public void exitPrimero(LogoTECParser.PrimeroContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSentencia_logoTEC(@NotNull LogoTECParser.Sentencia_logoTECContext ctx) { }
+	@Override public void enterUltimo(LogoTECParser.UltimoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSentencia_logoTEC(@NotNull LogoTECParser.Sentencia_logoTECContext ctx) { }
+	@Override public void exitUltimo(LogoTECParser.UltimoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx) { }
+	@Override public void enterOrdenes_tortuga(LogoTECParser.Ordenes_tortugaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx) { }
+	@Override public void exitOrdenes_tortuga(LogoTECParser.Ordenes_tortugaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrdenes_listas(@NotNull LogoTECParser.Ordenes_listasContext ctx) { }
+	@Override public void enterAvanzar(LogoTECParser.AvanzarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOrdenes_listas(@NotNull LogoTECParser.Ordenes_listasContext ctx) { }
+	@Override public void exitAvanzar(LogoTECParser.AvanzarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAvanzar(@NotNull LogoTECParser.AvanzarContext ctx) { }
+	@Override public void enterRetroceder(LogoTECParser.RetrocederContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAvanzar(@NotNull LogoTECParser.AvanzarContext ctx) { }
+	@Override public void exitRetroceder(LogoTECParser.RetrocederContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRumbo(@NotNull LogoTECParser.RumboContext ctx) { }
+	@Override public void enterGirar_derecha(LogoTECParser.Girar_derechaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRumbo(@NotNull LogoTECParser.RumboContext ctx) { }
+	@Override public void exitGirar_derecha(LogoTECParser.Girar_derechaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBorra_pantalla(@NotNull LogoTECParser.Borra_pantallaContext ctx) { }
+	@Override public void enterGirar_izquierda(LogoTECParser.Girar_izquierdaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBorra_pantalla(@NotNull LogoTECParser.Borra_pantallaContext ctx) { }
+	@Override public void exitGirar_izquierda(LogoTECParser.Girar_izquierdaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGirar_derecha(@NotNull LogoTECParser.Girar_derechaContext ctx) { }
+	@Override public void enterDefinir_coord(LogoTECParser.Definir_coordContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGirar_derecha(@NotNull LogoTECParser.Girar_derechaContext ctx) { }
+	@Override public void exitDefinir_coord(LogoTECParser.Definir_coordContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterResiduo(@NotNull LogoTECParser.ResiduoContext ctx) { }
+	@Override public void enterDefinir_x(LogoTECParser.Definir_xContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitResiduo(@NotNull LogoTECParser.ResiduoContext ctx) { }
+	@Override public void exitDefinir_x(LogoTECParser.Definir_xContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPotencia(@NotNull LogoTECParser.PotenciaContext ctx) { }
+	@Override public void enterDefinir_y(LogoTECParser.Definir_yContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPotencia(@NotNull LogoTECParser.PotenciaContext ctx) { }
+	@Override public void exitDefinir_y(LogoTECParser.Definir_yContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBorrar(@NotNull LogoTECParser.BorrarContext ctx) { }
+	@Override public void enterDefinir_dir(LogoTECParser.Definir_dirContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBorrar(@NotNull LogoTECParser.BorrarContext ctx) { }
+	@Override public void exitDefinir_dir(LogoTECParser.Definir_dirContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDibujar(@NotNull LogoTECParser.DibujarContext ctx) { }
+	@Override public void enterEsperar(LogoTECParser.EsperarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDibujar(@NotNull LogoTECParser.DibujarContext ctx) { }
+	@Override public void exitEsperar(LogoTECParser.EsperarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElemento_n(@NotNull LogoTECParser.Elemento_nContext ctx) { }
+	@Override public void enterOcultar_tortuga(LogoTECParser.Ocultar_tortugaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElemento_n(@NotNull LogoTECParser.Elemento_nContext ctx) { }
+	@Override public void exitOcultar_tortuga(LogoTECParser.Ocultar_tortugaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDefinir_x(@NotNull LogoTECParser.Definir_xContext ctx) { }
+	@Override public void enterAparecer_tortuga(LogoTECParser.Aparecer_tortugaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDefinir_x(@NotNull LogoTECParser.Definir_xContext ctx) { }
+	@Override public void exitAparecer_tortuga(LogoTECParser.Aparecer_tortugaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx) { }
+	@Override public void enterRumbo(LogoTECParser.RumboContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx) { }
+	@Override public void exitRumbo(LogoTECParser.RumboContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDefinir_y(@NotNull LogoTECParser.Definir_yContext ctx) { }
+	@Override public void enterCentrar(LogoTECParser.CentrarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDefinir_y(@NotNull LogoTECParser.Definir_yContext ctx) { }
+	@Override public void exitCentrar(LogoTECParser.CentrarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAparecer_tortuga(@NotNull LogoTECParser.Aparecer_tortugaContext ctx) { }
+	@Override public void enterOrdenes_lienzo(LogoTECParser.Ordenes_lienzoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAparecer_tortuga(@NotNull LogoTECParser.Aparecer_tortugaContext ctx) { }
+	@Override public void exitOrdenes_lienzo(LogoTECParser.Ordenes_lienzoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIncrementa(@NotNull LogoTECParser.IncrementaContext ctx) { }
+	@Override public void enterBorrar(LogoTECParser.BorrarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIncrementa(@NotNull LogoTECParser.IncrementaContext ctx) { }
+	@Override public void exitBorrar(LogoTECParser.BorrarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterReferencia(@NotNull LogoTECParser.ReferenciaContext ctx) { }
+	@Override public void enterDibujar(LogoTECParser.DibujarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReferencia(@NotNull LogoTECParser.ReferenciaContext ctx) { }
+	@Override public void exitDibujar(LogoTECParser.DibujarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOcultar_tortuga(@NotNull LogoTECParser.Ocultar_tortugaContext ctx) { }
+	@Override public void enterNo_dibujar(LogoTECParser.No_dibujarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOcultar_tortuga(@NotNull LogoTECParser.Ocultar_tortugaContext ctx) { }
+	@Override public void exitNo_dibujar(LogoTECParser.No_dibujarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGirar_izquierda(@NotNull LogoTECParser.Girar_izquierdaContext ctx) { }
+	@Override public void enterBorra_pantalla(LogoTECParser.Borra_pantallaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGirar_izquierda(@NotNull LogoTECParser.Girar_izquierdaContext ctx) { }
+	@Override public void exitBorra_pantalla(LogoTECParser.Borra_pantallaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDato(LogoTECParser.DatoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDato(LogoTECParser.DatoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNumero(LogoTECParser.NumeroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNumero(LogoTECParser.NumeroContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void exitEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitTerminal(@NotNull TerminalNode node) { }
+	@Override public void visitTerminal(TerminalNode node) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitErrorNode(@NotNull ErrorNode node) { }
+	@Override public void visitErrorNode(ErrorNode node) { }
 }
