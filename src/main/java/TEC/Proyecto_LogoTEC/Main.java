@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javafx.application.Application;
@@ -23,6 +24,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
@@ -209,8 +211,8 @@ public class Main extends Application {
 	/*
 	 * Función que compila el código con el contenido del editor
 	 */
+	TreeViewer TV;
 	private void compileCode() {
-		
 		
 		System.out.println("Compilando...");
 		System.out.println(codeArea.getText());
@@ -232,7 +234,9 @@ public class Main extends Application {
 	        
 	        parser.addErrorListener(errorManager); // add ours
 	        //
-	        parser.programa(); // parse as usual
+	       
+	        LogoTECParser.ProgramaContext tree = parser.programa();
+	        TV=new TreeViewer(Arrays.asList(parser.getRuleNames()),tree);
 	        
 			//LogoTECParser.ProgramaContext tree = parser.programa();
 			//System.out.println(tree.toStringTree(parser));
@@ -271,7 +275,7 @@ public class Main extends Application {
 	 */
 	
 	private void printAST() {
-		System.out.println("Imprimiendo AST...");
+		TV.open();
 	}
 	
 	
