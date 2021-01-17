@@ -194,12 +194,13 @@ public class Main extends Application {
 					currFilePath = path;
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
+					System.out.println("No se ha seleccionado un archivo en el file chooser");
 					e.printStackTrace();
 				}
 				
 			} else {
 				// TODO Auto-generated catch block
-				System.out.println("No selecciona un archivo");
+				System.out.println("No se ha seleccionado un archivo");
 			}
 		}
 		
@@ -233,17 +234,19 @@ public class Main extends Application {
 	        //
 	        parser.programa(); // parse as usual
 	        
-			LogoTECParser.ProgramaContext tree = parser.programa();
-			System.out.println(tree.toStringTree(parser));
+			//LogoTECParser.ProgramaContext tree = parser.programa();
+			//System.out.println(tree.toStringTree(parser));
 
-			LogoTECCustomVisitor visitor = new LogoTECCustomVisitor();
-			visitor.visit(tree);
+			//LogoTECCustomVisitor visitor = new LogoTECCustomVisitor();
+			//visitor.visit(tree);
 			
 			
 			System.out.println("Interpretation finished");
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AlertBox.display("ERROR", "Para compilar primero debe guardar el archivo");
+			System.out.println("Cannot interpret the file");
+			//e.printStackTrace();
 		}
 		
 		
@@ -257,6 +260,7 @@ public class Main extends Application {
 	 * Función que compila el código con el contenido del editor y luego trata de ejecutarlo
 	 */
 	private void executeCode()  {
+		saveFile(codeArea.getText());
 		compileCode();
 		System.out.println("Ejecutando...");
 		//l.Texto(codeArea.getText().split("\n"));
