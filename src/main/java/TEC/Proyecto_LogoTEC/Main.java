@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javafx.application.Application;
@@ -23,6 +24,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.ANTLRFileStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
@@ -194,12 +196,13 @@ public class Main extends Application {
 					currFilePath = path;
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
+					System.out.println("No se ha seleccionado un archivo en el file chooser");
 					e.printStackTrace();
 				}
 				
 			} else {
 				// TODO Auto-generated catch block
-				System.out.println("No selecciona un archivo");
+				System.out.println("No se ha seleccionado un archivo");
 			}
 		}
 		
@@ -208,8 +211,8 @@ public class Main extends Application {
 	/*
 	 * Función que compila el código con el contenido del editor
 	 */
+	TreeViewer TV;
 	private void compileCode() {
-		
 		
 		System.out.println("Compilando...");
 		System.out.println(codeArea.getText());
@@ -231,19 +234,23 @@ public class Main extends Application {
 	        
 	        parser.addErrorListener(errorManager); // add ours
 	        //
-	        parser.programa(); // parse as usual
+	       
+	        LogoTECParser.ProgramaContext tree = parser.programa();
+	        TV=new TreeViewer(Arrays.asList(parser.getRuleNames()),tree);
 	        
-			LogoTECParser.ProgramaContext tree = parser.programa();
-			System.out.println(tree.toStringTree(parser));
+			//LogoTECParser.ProgramaContext tree = parser.programa();
+			//System.out.println(tree.toStringTree(parser));
 
-			LogoTECCustomVisitor visitor = new LogoTECCustomVisitor();
-			visitor.visit(tree);
+			//LogoTECCustomVisitor visitor = new LogoTECCustomVisitor();
+			//visitor.visit(tree);
 			
 			
 			System.out.println("Interpretation finished");
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			AlertBox.display("ERROR", "Para compilar primero debe guardar el archivo");
+			System.out.println("Cannot interpret the file");
+			//e.printStackTrace();
 		}
 		
 		
@@ -257,6 +264,7 @@ public class Main extends Application {
 	 * Función que compila el código con el contenido del editor y luego trata de ejecutarlo
 	 */
 	private void executeCode()  {
+		saveFile(codeArea.getText());
 		compileCode();
 		System.out.println("Ejecutando...");
 		//l.Texto(codeArea.getText().split("\n"));
@@ -267,9 +275,8 @@ public class Main extends Application {
 	 */
 	
 	private void printAST() {
-		System.out.println("Imprimiendo AST...");
+		TV.open();
 	}
 	
 	
 }
-

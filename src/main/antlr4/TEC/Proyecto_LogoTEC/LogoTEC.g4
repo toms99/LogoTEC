@@ -92,27 +92,35 @@ menos: MENOS ENTERO;
 ordenes_listas: elegir | elemento_n | largo | primero | ultimo;
 elegir returns [ASTNode node]: ELEMENTO_AZAR PAR_CUAD_ABIERTO {
 							   List<ASTNode> body = new ArrayList<ASTNode>();} 
-							   (dato {body.add($dato.text);})* {
-							   	$node = new ListaElegir(body);
+							   (numero {body.add($numero.node);})* {
+							   	Random rand = new Random(); 
+	   							$node = body.get(rand.nextInt(body.size()));
 							   } PAR_CUAD_CERRADO;
 							   
 							   
 elemento_n returns [ASTNode node]: ELEMENTO_N ENTERO PAR_CUAD_ABIERTO {
 							   List<ASTNode> body = new ArrayList<ASTNode>();} 
-							   (dato {body.add($dato);})* {
-							   	Random rand = new Random(); 
+							   (numero {body.add($numero.node);})* {
 							   	$node = body.get(Integer.parseInt($ELEMENTO_N.text));
 							   } PAR_CUAD_CERRADO;
 							   
 largo returns [ASTNode node]: LONGITUD PAR_CUAD_ABIERTO {
 							   List<ASTNode> body = new ArrayList<ASTNode>();} 
-							   (dato {body.add($dato);})* {
-							   	Random rand = new Random(); 
-							   	$node = body.size();
+							   (numero {body.add($numero.node);})* {
+							   	$node = new Constante(body.size());
 							   } PAR_CUAD_CERRADO;
 							   
-primero returns [ASTNode node]: PRIMERO_LISTA PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO;
-ultimo returns [ASTNode node]: ULTIMO PAR_CUAD_ABIERTO dato* PAR_CUAD_CERRADO; */
+primero returns [ASTNode node]: PRIMERO_LISTA PAR_CUAD_ABIERTO {
+							   List<ASTNode> body = new ArrayList<ASTNode>();} 
+							   (numero {body.add($numero.node);})* {
+							   	$node = body.get(0);
+							   } PAR_CUAD_CERRADO;
+							   
+ultimo returns [ASTNode node]: ULTIMO PAR_CUAD_ABIERTO {
+							   List<ASTNode> body = new ArrayList<ASTNode>();} 
+							   (numero {body.add($numero.node);})* {
+							   	$node = body.get(body.size()-1);
+							   } PAR_CUAD_CERRADO; 
 
 
 
@@ -175,7 +183,8 @@ dato returns [ASTNode node]:  COMILLA ID COMILLA {$node = new Constante($ID.text
 							  | FALSE {$node = new Constante(Boolean.parseBoolean($FALSE.text));} 
 							  /* | ID*/ 
 							  | numero {$node = $numero.node;};
-numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($ENTERO.text));};
+numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($ENTERO.text));}
+							 | ordenes_listas {$node = $ordenes_listas.node;};
 						      /*| operacion_aritmetica {$node = $numero.node;}; */
 
 
@@ -191,16 +200,16 @@ INIC: 'INIC';
 INC: 'INC';
 
 // Claves para operaciones aritmeticas
-SUMA: 'Suma';
-RESIDUO: 'Resto';
-DIVISION: 'Division';
-POTENCIA: 'Potencia';
-PRODUCTO: 'Producto';
-NEGATIVO: 'Menos';
-DIFERENCIA: 'Diferencia';
+SUMA: 'Suma' | 'suma';
+RESIDUO: 'Resto' | 'resto';
+DIVISION: 'Division' | 'division';
+POTENCIA: 'Potencia' | 'potencia';
+PRODUCTO: 'Producto' | 'producto';
+NEGATIVO: 'Menos' | 'menos';
+DIFERENCIA: 'Diferencia' | 'diferencia';
 
-REDONDEO: 'Redondea';
-AZAR: 'Azar';
+REDONDEO: 'Redondea' | 'redondea';
+AZAR: 'Azar' | 'azar';
 
 //Claves para operaciones logicas
 MAYOR: 'MayorQue?' | 'mayorque?';
@@ -210,10 +219,10 @@ OR: 'O';
 IGUALES: 'iguales?' | 'Iguales?';
 
 // Claves para listas
-ELEMENTO_AZAR: 'Elegir';
-LONGITUD: 'Cuenta';
-ULTIMO: 'Ultimo' | 'ul';
-ELEMENTO_N: 'Elemento';
+ELEMENTO_AZAR: 'Elegir' | 'elegir';
+LONGITUD: 'Cuenta' | 'cuenta';
+ULTIMO: 'Ultimo' | 'ul' | 'ultimo';
+ELEMENTO_N: 'Elemento' | 'elemento';
 PRIMERO_LISTA: 'Pri' | 'Primero';
 
 // Claves para ciclos y funciones.
@@ -226,23 +235,23 @@ DO_N: 'REPITE';
 DO: 'Ejecuta';
 
 // Claves para la tortuga
-AVANZA: 'AVANZA' | 'AV';
-RETROCEDE: 'RETROCEDE' | 'RE';
-ESPERA: 'ESPERA' | 'Espera';
+AVANZA: 'AVANZA' | 'AV' | 'avanza';
+RETROCEDE: 'RETROCEDE' | 'RE' | 'retrocede';
+ESPERA: 'ESPERA' | 'Espera' | 'espera';
 
-GIRA_DERECHA: 'GiraDerecha' | 'GD';
-GIRA_IZQUIERDA: 'GiraIzquierda' | 'GI';
+GIRA_DERECHA: 'GiraDerecha' | 'GD' | 'giraderecha';
+GIRA_IZQUIERDA: 'GiraIzquierda' | 'GI' | 'giraizquierda';
 
-OCULTA_TORTUGA: 'OcultaTortuga' | 'OT';
-APARECE_TORTUGA: 'ApareceTortuga' | 'AT';
-CENTRO: 'Centro' | 'centro';
+OCULTA_TORTUGA: 'OcultaTortuga' | 'OT' | 'ocultatortuga';
+APARECE_TORTUGA: 'ApareceTortuga' | 'AT' | 'aparecetortuga';
+CENTRO: 'Centro' | 'centro' | 'centro';
 
 PON_POS: 'PonPOS' | 'PonXY';
 PONX: 'PonX';
 PONY: 'PonY';
 
-PON_RUMBO: 'PonRumbo';
-RUMBO: 'Muestra RUMBO';
+PON_RUMBO: 'PonRumbo' | 'ponrumbo';
+RUMBO: 'Muestra RUMBO' | 'rumbo' | 'RUMBO';
 
 
 // Claves para el lienzo.
