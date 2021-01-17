@@ -1,7 +1,20 @@
 grammar simple;
 
 /* Sentencia de un programa */
+<<<<<<< Updated upstream:out/production/ANTLR_Tests/simple.g4
 programa: PROGRAMA BRACKET_ABIERTO sentencia_logoTEC* BRACKET_CERRADO;
+=======
+programa: 
+{
+	List<ASTNode> body = new ArrayList<ASTNode>();
+	Map<String, Object> symbolTable = new HashMap<String,Object>();
+} (sentencia_logoTEC {body.add($sentencia_logoTEC);})* 
+{
+	for (ASTNode n: body) {
+		n.execute(symbolTable);
+	}
+};
+>>>>>>> Stashed changes:src/main/antlr4/TEC/Proyecto_LogoTEC/LogoTEC.g4
 
 /* Sentencias para funciones y ciclos */
 ejecuta: DO PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
@@ -23,11 +36,19 @@ sentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo
                       | operacion_aritmetica | ordenes_listas | ordenes_tortuga;
 
 /* Sentencias de variables */
-ordenes_variables: asignacion | reasignacion | incrementa;
-asignacion: HAZ ID dato;
+ordenes_variables returns [ASTNode node]: 
+		asignacion {$node = $asignacion.node;}
+		| reasignacion 
+		| incrementa 
+		| println {$node = $println.node;}
+		;
+asignacion returns [ASTNode node]: 
+		HAZ ID dato {$node =  new Asignacion($ID.text, $dato.node);};
 reasignacion: INIC ID ASIGNAR dato;
 incrementa: INC PAR_CUAD_ABIERTO ID PAR_CUAD_CERRADO
             | INC PAR_CUAD_ABIERTO ID ENTERO PAR_CUAD_CERRADO;
+println returns [ASTNode node]: PRINTLN dato
+		{$node = new Println($dato.node)};
 
 /* Sentencias logicas */
 condicion: PAR_ABIERTO ordenes_logicas PAR_CERRADO;
@@ -92,9 +113,20 @@ definir_color: COLOR ID;
 
 borra_pantalla: BORRA_PANTALLA;
 
+
 /* Sentencias utilitarias */
+<<<<<<< Updated upstream:out/production/ANTLR_Tests/simple.g4
 dato:  COMILLA ID COMILLA | TRUE | FALSE | ID | numero;
 numero: ENTERO | operacion_aritmetica;
+=======
+dato returns [ASTNode node]:  COMILLA ID COMILLA {$node = new Constante(String.parseString($ID.text));}
+							  | TRUE {$node = new Constante(Boolean.parseBoolean($TRUE.text));}
+							  | FALSE {$node = new Constante(Boolean.parseBoolean($FALSE.text));} 
+							  | ID {$node = new ConstRef($ID.text);}
+							  | numero {$node = $numero.node;};
+numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($ENTERO.text));}
+						      | operacion_aritmetica {$node = $numero.node;} ;
+>>>>>>> Stashed changes:src/main/antlr4/TEC/Proyecto_LogoTEC/LogoTEC.g4
 
 
 /* *** Claves o terminales especificos de LogoTEC *** */
@@ -172,6 +204,10 @@ BORRA_PANTALLA: 'borrapantalla';
 /* *** Valores logicos *** */
 TRUE: 'TRUE';
 FALSE: 'FALSE';
+
+// Printl
+
+PRINTLN: 'println';
 
 // LOS QUE ME DEBO FUMAR ----------
 MAS: '+';
