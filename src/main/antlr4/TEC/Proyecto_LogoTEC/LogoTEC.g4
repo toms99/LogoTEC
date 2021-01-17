@@ -27,7 +27,7 @@ programa returns [ASTNode node]: {
 		}
 };
 
-/* Sentencias para funciones y ciclos 
+/* Sentencias para funciones y ciclos   
 ejecuta: DO PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
 repite: DO_N PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
 
@@ -48,14 +48,23 @@ sentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo
                       
 sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tortuga.node;};             
 
-/* Sentencias de variables 
-ordenes_variables: asignacion | reasignacion | incrementa;
-asignacion: HAZ ID dato;
-reasignacion: INIC ID ASIGNAR dato;
-incrementa: INC PAR_CUAD_ABIERTO ID PAR_CUAD_CERRADO
-            | INC PAR_CUAD_ABIERTO ID ENTERO PAR_CUAD_CERRADO; */
+// Sentencias de variables 
+ordenes_variables returns [ASTNode node]: asignacion {$node = $asignacion.node;}
+										| reasignacion {$node = $reasignacion.node;}
+										| incrementa {$node = $incrementa.node;}
+										| println {$node = $println.node;};
+asignacion returns [ASTNode node]: 
+			HAZ ID dato {$node =  new Asignacion($ID.text, $dato.node);};
+reasignacion returns [ASTNode node]: 
+			INIC ID ASIGNAR dato {$node =  new Reasignacion($ID.text, $dato.node);};
+incrementa returns [ASTNode node]: 
+			INC PAR_CUAD_ABIERTO ID PAR_CUAD_CERRADO {$node =  new IncrementaUno($ID.text);}
+		  //| INC PAR_CUAD_ABIERTO ID numero PAR_CUAD_CERRADO {$node =  new IncrementaDos($ID.text, numero);}
+          | INC PAR_CUAD_ABIERTO ID dato PAR_CUAD_CERRADO {$node =  new IncrementaTres($ID.text, $dato.text);};
+println returns [ASTNode node]: 
+			PRINTLN dato {$node = new Println($dato.node);};
 
-/* Sentencias logicas 
+/* Sentencias logicas   
 condicion: PAR_ABIERTO ordenes_logicas PAR_CERRADO;
 ordenes_logicas: iguales | and | or | mayor | menor;
 
@@ -65,7 +74,7 @@ or: OR condicion condicion;
 mayor: MAYOR numero numero;
 menor: MENOR numero numero; */
 
-/* Sentencias aritmeticas 
+/*  Sentencias aritmeticas    
 operacion_aritmetica: suma | diferencia | producto | potencia | division | residuo
                       | redondear | azar | menos;
 suma: SUMA numero numero;
@@ -74,11 +83,11 @@ producto: PRODUCTO numero numero*;
 potencia: POTENCIA numero numero;
 division: DIVISION numero numero;
 residuo: RESIDUO ENTERO ENTERO;
-
+ 
 redondear: REDONDEO numero;
 azar: AZAR ENTERO;
-menos: MENOS ENTERO; */
-
+menos: MENOS ENTERO; 
+*/
 /* Sentencias de listas 
 ordenes_listas: elegir | elemento_n | largo | primero | ultimo;
 elegir returns [ASTNode node]: ELEMENTO_AZAR PAR_CUAD_ABIERTO {
