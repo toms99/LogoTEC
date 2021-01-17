@@ -16,8 +16,8 @@ public class TortugaAvanza implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		int distancia = (int) comando.execute(null, null);
-		String texto = "avanza " + String.valueOf(distancia);
+		//int distancia = (int) comando.execute(symbolTable, lectorTortuga);
+		String texto = "avanza " + String.valueOf(comando.execute(symbolTable, lectorTortuga));
 		lector.Texto(texto.split("\n"));
 		return null;
 	}

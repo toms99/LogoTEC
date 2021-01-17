@@ -2,6 +2,7 @@ grammar LogoTEC;
 
 @parser:: header {
 
+
 	import java.util.Map;
 	import java.util.HashMap;
 	import java.util.Random; 
@@ -11,6 +12,7 @@ grammar LogoTEC;
 }
 
 @parser::members{
+
 
 	Map<String, Object> tablaSimbolos = new HashMap<String, Object>(); 
 	Lector lectorTortuga;
@@ -28,6 +30,7 @@ programa returns [ASTNode node]: {
 };
 
 /* Sentencias para funciones y ciclos   
+
 ejecuta: DO PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
 repite: DO_N PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
 
@@ -46,13 +49,15 @@ sentencia_logoTEC: ejecuta | repite | si | sisino | sentencia_general | do_while
 sentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo
                       | operacion_aritmetica | ordenes_listas | ordenes_tortuga; */
                       
-sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tortuga.node;};             
+sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tortuga.node;}
+										| ordenes_variables {$node = $ordenes_variables.node;};             
 
 // Sentencias de variables 
 ordenes_variables returns [ASTNode node]: asignacion {$node = $asignacion.node;}
 										| reasignacion {$node = $reasignacion.node;}
 										| incrementa {$node = $incrementa.node;}
-										| println {$node = $println.node;};
+										| referencia {$node = $referencia.node;}; 
+										
 asignacion returns [ASTNode node]: 
 			HAZ ID dato {$node =  new Asignacion($ID.text, $dato.node);};
 reasignacion returns [ASTNode node]: 
@@ -61,8 +66,9 @@ incrementa returns [ASTNode node]:
 			INC PAR_CUAD_ABIERTO ID PAR_CUAD_CERRADO {$node =  new IncrementaUno($ID.text);}
 		  //| INC PAR_CUAD_ABIERTO ID numero PAR_CUAD_CERRADO {$node =  new IncrementaDos($ID.text, numero);}
           | INC PAR_CUAD_ABIERTO ID dato PAR_CUAD_CERRADO {$node =  new IncrementaTres($ID.text, $dato.text);};
-println returns [ASTNode node]: 
-			PRINTLN dato {$node = new Println($dato.node);};
+
+referencia returns [ASTNode node]: 
+			ID {$node = new ConstRef($ID.text);};
 
 /* Sentencias logicas   
 condicion: PAR_ABIERTO ordenes_logicas PAR_CERRADO;
@@ -74,22 +80,43 @@ or: OR condicion condicion;
 mayor: MAYOR numero numero;
 menor: MENOR numero numero; */
 
-/*  Sentencias aritmeticas    
-operacion_aritmetica: suma | diferencia | producto | potencia | division | residuo
-                      | redondear | azar | menos;
-suma: SUMA numero numero;
-diferencia: DIFERENCIA numero numero*;
-producto: PRODUCTO numero numero*;
-potencia: POTENCIA numero numero;
-division: DIVISION numero numero;
-residuo: RESIDUO ENTERO ENTERO;
+/*  Sentencias aritmeticas  */  
+operacion_aritmetica returns [ASTNode node]: suma {$node = $suma.node;} 
+										   | diferencia {$node = $diferencia.node;}
+										   | producto {$node = $producto.node;} 
+										   | potencia {$node = $potencia.node;}
+										   | division {$node = $division.node;} 
+										   | residuo {$node = $residuo.node;}
+										   | redondear {$node = $redondear.node;}
+										   | azar {$node = $azar.node;} 
+										   | menos {$node = $menos.node;};
+										   
+suma returns [ASTNode node]: SUMA n1 = numero {$node = $n1.node;} 
+								(n2 = numero {$node = new Suma($node, $n2.node);})*;
+diferencia returns [ASTNode node]: DIFERENCIA n1 = numero {$node = $n1.node;} 
+								(n2 = numero {$node = new Diferencia($node, $n2.node);})*;
+producto returns [ASTNode node]: PRODUCTO n1 = numero {$node = $n1.node;} 
+								(n2 = numero {$node = new Producto($node, $n2.node);})*;
+potencia returns [ASTNode node]: POTENCIA n1 = numero {$node = $n1.node;} 
+								(n2 = numero {$node = new Potencia($node, $n2.node);});
+division returns [ASTNode node]: DIVISION n1 = numero {$node = $n1.node;} 
+								(n2 = numero {$node = new Division($node, $n2.node);});
+residuo returns [ASTNode node]: RESIDUO  n1 = numero {$node = $n1.node;} 
+								(n2 = numero {$node = new Residuo($node, $n2.node);});
  
-redondear: REDONDEO numero;
-azar: AZAR ENTERO;
-menos: MENOS ENTERO; 
-*/
-/* Sentencias de listas 
-ordenes_listas: elegir | elemento_n | largo | primero | ultimo;
+redondear returns [ASTNode node]: REDONDEO numero {$node = new Redondear($numero.node);};
+azar returns [ASTNode node]: AZAR numero {$node = new Azar($numero.node);};
+menos returns [ASTNode node]: NEGATIVO numero {$node = new Menos($numero.node);}; 
+
+
+/* Sentencias de listas */
+
+ordenes_listas returns [ASTNode node]: elegir {$node = $elegir.node;}  
+									 | elemento_n {$node = $elemento_n.node;} 
+									 | largo {$node = $largo.node;} 
+									 | primero {$node = $primero.node;} 
+									 | ultimo {$node = $ultimo.node;};
+									 
 elegir returns [ASTNode node]: ELEMENTO_AZAR PAR_CUAD_ABIERTO {
 							   List<ASTNode> body = new ArrayList<ASTNode>();} 
 							   (numero {body.add($numero.node);})* {
@@ -181,11 +208,13 @@ borra_pantalla returns [ASTNode node]: BORRA_PANTALLA {$node = new LienzoBorrarP
 dato returns [ASTNode node]:  COMILLA ID COMILLA {$node = new Constante($ID.text);}
 							  | TRUE {$node = new Constante(Boolean.parseBoolean($TRUE.text));}
 							  | FALSE {$node = new Constante(Boolean.parseBoolean($FALSE.text));} 
-							  /* | ID*/ 
+							 /* | ID  */
 							  | numero {$node = $numero.node;};
 numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($ENTERO.text));}
-							 | ordenes_listas {$node = $ordenes_listas.node;};
-						      /*| operacion_aritmetica {$node = $numero.node;}; */
+							 | FLOAT {$node = new Constante(Float.parseFloat($FLOAT.text));}
+							 | ordenes_listas {$node = $ordenes_listas.node;}
+							 | referencia {$node = $referencia.node;}
+						     | operacion_aritmetica {$node = $operacion_aritmetica.node;}; 
 
 
 /* *** Claves o terminales especificos de LogoTEC *** */
@@ -198,6 +227,7 @@ PROGRAMA: 'Programa';
 HAZ: 'Haz';
 INIC: 'INIC';
 INC: 'INC';
+PRINTLN: 'print';
 
 // Claves para operaciones aritmeticas
 SUMA: 'Suma' | 'suma';
@@ -267,7 +297,6 @@ FALSE: 'FALSE';
 
 // LOS QUE ME DEBO FUMAR ----------
 MAS: '+';
-MENOS: '-';
 MULTI: '*';
 DIV: '/';
 MY: '>';
@@ -300,6 +329,8 @@ COMILLA: '"';
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 ENTERO: [0-9]+;
+FLOAT: ENTERO('.'ENTERO)?;
+
 
 ESPACIO_BLANCO: [ \n\t\r]+ -> skip;
 

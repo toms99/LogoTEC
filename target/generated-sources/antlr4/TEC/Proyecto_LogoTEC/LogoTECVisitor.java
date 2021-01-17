@@ -2,6 +2,7 @@
 package TEC.Proyecto_LogoTEC;
 
 
+
 	import java.util.Map;
 	import java.util.HashMap;
 	import java.util.Random; 
@@ -21,17 +22,41 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#suma}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSuma(@NotNull LogoTECParser.SumaContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#asignacion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAsignacion(@NotNull LogoTECParser.AsignacionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#primero}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPrimero(@NotNull LogoTECParser.PrimeroContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#redondear}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRedondear(@NotNull LogoTECParser.RedondearContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#numero}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitNumero(@NotNull LogoTECParser.NumeroContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#azar}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAzar(@NotNull LogoTECParser.AzarContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#no_dibujar}.
 	 * @param ctx the parse tree
@@ -57,11 +82,35 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrograma(@NotNull LogoTECParser.ProgramaContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#operacion_aritmetica}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#producto}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProducto(@NotNull LogoTECParser.ProductoContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#esperar}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitEsperar(@NotNull LogoTECParser.EsperarContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#division}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivision(@NotNull LogoTECParser.DivisionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#menos}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMenos(@NotNull LogoTECParser.MenosContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#dato}.
 	 * @param ctx the parse tree
@@ -99,6 +148,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCentrar(@NotNull LogoTECParser.CentrarContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#diferencia}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#retroceder}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -116,6 +171,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSentencia_logoTEC(@NotNull LogoTECParser.Sentencia_logoTECContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#reasignacion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#ordenes_listas}.
 	 * @param ctx the parse tree
@@ -147,6 +208,18 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGirar_derecha(@NotNull LogoTECParser.Girar_derechaContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#residuo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitResiduo(@NotNull LogoTECParser.ResiduoContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#potencia}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPotencia(@NotNull LogoTECParser.PotenciaContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#borrar}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -171,6 +244,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDefinir_x(@NotNull LogoTECParser.Definir_xContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#ordenes_variables}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#definir_y}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -182,6 +261,18 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAparecer_tortuga(@NotNull LogoTECParser.Aparecer_tortugaContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#incrementa}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIncrementa(@NotNull LogoTECParser.IncrementaContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#referencia}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReferencia(@NotNull LogoTECParser.ReferenciaContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#ocultar_tortuga}.
 	 * @param ctx the parse tree

@@ -18,7 +18,7 @@ public class Reasignacion implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		symbolTable.put(name, dato.execute(symbolTable, null));
+		symbolTable.put(name, dato.execute(symbolTable, lectorTortuga));
 		//symbolTable.get(name);     // Obtener el valor de la variable
 		return null;
 	}

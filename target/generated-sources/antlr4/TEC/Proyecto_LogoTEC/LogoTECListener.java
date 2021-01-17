@@ -2,6 +2,7 @@
 package TEC.Proyecto_LogoTEC;
 
 
+
 	import java.util.Map;
 	import java.util.HashMap;
 	import java.util.Random; 
@@ -18,6 +19,26 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface LogoTECListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#suma}.
+	 * @param ctx the parse tree
+	 */
+	void enterSuma(@NotNull LogoTECParser.SumaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#suma}.
+	 * @param ctx the parse tree
+	 */
+	void exitSuma(@NotNull LogoTECParser.SumaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#asignacion}.
+	 * @param ctx the parse tree
+	 */
+	void enterAsignacion(@NotNull LogoTECParser.AsignacionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#asignacion}.
+	 * @param ctx the parse tree
+	 */
+	void exitAsignacion(@NotNull LogoTECParser.AsignacionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#primero}.
 	 * @param ctx the parse tree
 	 */
@@ -28,6 +49,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitPrimero(@NotNull LogoTECParser.PrimeroContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#redondear}.
+	 * @param ctx the parse tree
+	 */
+	void enterRedondear(@NotNull LogoTECParser.RedondearContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#redondear}.
+	 * @param ctx the parse tree
+	 */
+	void exitRedondear(@NotNull LogoTECParser.RedondearContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#numero}.
 	 * @param ctx the parse tree
 	 */
@@ -37,6 +68,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNumero(@NotNull LogoTECParser.NumeroContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#azar}.
+	 * @param ctx the parse tree
+	 */
+	void enterAzar(@NotNull LogoTECParser.AzarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#azar}.
+	 * @param ctx the parse tree
+	 */
+	void exitAzar(@NotNull LogoTECParser.AzarContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#no_dibujar}.
 	 * @param ctx the parse tree
@@ -78,6 +119,26 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitPrograma(@NotNull LogoTECParser.ProgramaContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#operacion_aritmetica}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#operacion_aritmetica}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#producto}.
+	 * @param ctx the parse tree
+	 */
+	void enterProducto(@NotNull LogoTECParser.ProductoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#producto}.
+	 * @param ctx the parse tree
+	 */
+	void exitProducto(@NotNull LogoTECParser.ProductoContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#esperar}.
 	 * @param ctx the parse tree
 	 */
@@ -87,6 +148,26 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEsperar(@NotNull LogoTECParser.EsperarContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#division}.
+	 * @param ctx the parse tree
+	 */
+	void enterDivision(@NotNull LogoTECParser.DivisionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#division}.
+	 * @param ctx the parse tree
+	 */
+	void exitDivision(@NotNull LogoTECParser.DivisionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#menos}.
+	 * @param ctx the parse tree
+	 */
+	void enterMenos(@NotNull LogoTECParser.MenosContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#menos}.
+	 * @param ctx the parse tree
+	 */
+	void exitMenos(@NotNull LogoTECParser.MenosContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#dato}.
 	 * @param ctx the parse tree
@@ -148,6 +229,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitCentrar(@NotNull LogoTECParser.CentrarContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#diferencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#diferencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#retroceder}.
 	 * @param ctx the parse tree
 	 */
@@ -177,6 +268,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSentencia_logoTEC(@NotNull LogoTECParser.Sentencia_logoTECContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#reasignacion}.
+	 * @param ctx the parse tree
+	 */
+	void enterReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#reasignacion}.
+	 * @param ctx the parse tree
+	 */
+	void exitReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#ordenes_listas}.
 	 * @param ctx the parse tree
@@ -228,6 +329,26 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitGirar_derecha(@NotNull LogoTECParser.Girar_derechaContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#residuo}.
+	 * @param ctx the parse tree
+	 */
+	void enterResiduo(@NotNull LogoTECParser.ResiduoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#residuo}.
+	 * @param ctx the parse tree
+	 */
+	void exitResiduo(@NotNull LogoTECParser.ResiduoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#potencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterPotencia(@NotNull LogoTECParser.PotenciaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#potencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitPotencia(@NotNull LogoTECParser.PotenciaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#borrar}.
 	 * @param ctx the parse tree
 	 */
@@ -268,6 +389,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitDefinir_x(@NotNull LogoTECParser.Definir_xContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#ordenes_variables}.
+	 * @param ctx the parse tree
+	 */
+	void enterOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#ordenes_variables}.
+	 * @param ctx the parse tree
+	 */
+	void exitOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#definir_y}.
 	 * @param ctx the parse tree
 	 */
@@ -287,6 +418,26 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAparecer_tortuga(@NotNull LogoTECParser.Aparecer_tortugaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#incrementa}.
+	 * @param ctx the parse tree
+	 */
+	void enterIncrementa(@NotNull LogoTECParser.IncrementaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#incrementa}.
+	 * @param ctx the parse tree
+	 */
+	void exitIncrementa(@NotNull LogoTECParser.IncrementaContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#referencia}.
+	 * @param ctx the parse tree
+	 */
+	void enterReferencia(@NotNull LogoTECParser.ReferenciaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#referencia}.
+	 * @param ctx the parse tree
+	 */
+	void exitReferencia(@NotNull LogoTECParser.ReferenciaContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#ocultar_tortuga}.
 	 * @param ctx the parse tree

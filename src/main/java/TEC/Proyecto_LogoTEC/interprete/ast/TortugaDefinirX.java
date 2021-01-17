@@ -16,8 +16,8 @@ public class TortugaDefinirX implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		int pos = (int) comando.execute(null, null);
-		String texto = "ponx " + String.valueOf(pos);
+		//int pos = (int) comando.execute(symbolTable, lectorTortuga);
+		String texto = "ponx " + String.valueOf(comando.execute(symbolTable, lectorTortuga));
 		lector.Texto(texto.split("\n"));
 		return null;
 	}

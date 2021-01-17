@@ -2,6 +2,7 @@
 package TEC.Proyecto_LogoTEC;
 
 
+
 	import java.util.Map;
 	import java.util.HashMap;
 	import java.util.Random; 
@@ -26,6 +27,30 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSuma(@NotNull LogoTECParser.SumaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSuma(@NotNull LogoTECParser.SumaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAsignacion(@NotNull LogoTECParser.AsignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAsignacion(@NotNull LogoTECParser.AsignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPrimero(@NotNull LogoTECParser.PrimeroContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -38,6 +63,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRedondear(@NotNull LogoTECParser.RedondearContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRedondear(@NotNull LogoTECParser.RedondearContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterNumero(@NotNull LogoTECParser.NumeroContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -45,6 +82,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNumero(@NotNull LogoTECParser.NumeroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAzar(@NotNull LogoTECParser.AzarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAzar(@NotNull LogoTECParser.AzarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -98,6 +147,30 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperacion_aritmetica(@NotNull LogoTECParser.Operacion_aritmeticaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterProducto(@NotNull LogoTECParser.ProductoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitProducto(@NotNull LogoTECParser.ProductoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterEsperar(@NotNull LogoTECParser.EsperarContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -105,6 +178,30 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitEsperar(@NotNull LogoTECParser.EsperarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDivision(@NotNull LogoTECParser.DivisionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDivision(@NotNull LogoTECParser.DivisionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMenos(@NotNull LogoTECParser.MenosContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMenos(@NotNull LogoTECParser.MenosContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -182,6 +279,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDiferencia(@NotNull LogoTECParser.DiferenciaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRetroceder(@NotNull LogoTECParser.RetrocederContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -213,6 +322,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSentencia_logoTEC(@NotNull LogoTECParser.Sentencia_logoTECContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReasignacion(@NotNull LogoTECParser.ReasignacionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -278,6 +399,30 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterResiduo(@NotNull LogoTECParser.ResiduoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitResiduo(@NotNull LogoTECParser.ResiduoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPotencia(@NotNull LogoTECParser.PotenciaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPotencia(@NotNull LogoTECParser.PotenciaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBorrar(@NotNull LogoTECParser.BorrarContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -326,6 +471,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOrdenes_variables(@NotNull LogoTECParser.Ordenes_variablesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDefinir_y(@NotNull LogoTECParser.Definir_yContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -345,6 +502,30 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAparecer_tortuga(@NotNull LogoTECParser.Aparecer_tortugaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIncrementa(@NotNull LogoTECParser.IncrementaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIncrementa(@NotNull LogoTECParser.IncrementaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterReferencia(@NotNull LogoTECParser.ReferenciaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitReferencia(@NotNull LogoTECParser.ReferenciaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

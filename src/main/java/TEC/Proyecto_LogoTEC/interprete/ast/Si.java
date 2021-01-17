@@ -17,9 +17,9 @@ public class Si implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		if ((boolean)condition.execute(symbolTable, null)) {
+		if ((boolean)condition.execute(symbolTable, lectorTortuga)) {
 			for(ASTNode n : body) {
-				n.execute(symbolTable, null);
+				n.execute(symbolTable, lectorTortuga);
 			}
 		}
 		return null;

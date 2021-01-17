@@ -2,6 +2,7 @@
 
 import java.util.Map;
 
+
 import TEC.Proyecto_LogoTEC.tortuga.Lector;
 
 public class TortugaOcultar implements ASTNode {	

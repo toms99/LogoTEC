@@ -19,9 +19,9 @@ public class Suma implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		res = (int)operador1.execute(symbolTable, null) + (int)operador2.execute(symbolTable, null);
+		res = (int)operador1.execute(symbolTable, lectorTortuga) + (int)operador2.execute(symbolTable, lectorTortuga);
 		System.out.println("El resultado de SUMA es: " + res);
-		return (int)operador1.execute(symbolTable, null) + (int)operador2.execute(symbolTable, null);
+		return (int)operador1.execute(symbolTable, lectorTortuga) + (int)operador2.execute(symbolTable, lectorTortuga);
 	}
 
 }

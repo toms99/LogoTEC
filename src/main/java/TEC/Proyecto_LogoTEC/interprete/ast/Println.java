@@ -17,7 +17,8 @@ public class Println implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		System.out.println(data.execute(symbolTable, null));
+		//System.out.println(data.execute(symbolTable, null));
+		data.execute(symbolTable, lectorTortuga);
 		return null;
 	}
 

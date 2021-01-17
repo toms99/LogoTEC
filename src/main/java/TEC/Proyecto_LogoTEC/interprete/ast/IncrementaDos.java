@@ -23,13 +23,13 @@ public class IncrementaDos implements ASTNode {
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		dato = (ASTNode) symbolTable.get(name);
-		res = (int)dato.execute(symbolTable, null);
+		res = (int)dato.execute(symbolTable, lectorTortuga);
 		while (valor != 0) {
 			res += 1;
 		}
 		System.out.println(res);
 		symbolTable.put(name, res);
-		return (int)dato.execute(symbolTable, null);
+		return (int)dato.execute(symbolTable, lectorTortuga);
 	}
 
 }

@@ -249,8 +249,8 @@ public class Main extends Application {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			AlertBox.display("ERROR", "Para compilar primero debe guardar el archivo");
-			System.out.println("Cannot interpret the file");
-			//e.printStackTrace();
+			//System.out.println("Cannot interpret the file");
+			e.printStackTrace();
 		}
 		
 		
