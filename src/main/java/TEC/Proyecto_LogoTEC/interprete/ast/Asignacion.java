@@ -25,8 +25,16 @@ public class Asignacion implements ASTNode {
 	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		symbolTable.put(name, dato.execute(symbolTable, lectorTortuga));
-		//symbolTable.get(name);     // Obtener el valor de la variable
+		
+		try {
+			if (symbolTable.get(name) != null) {	
+				throw new AsigException (111);
+			}else {
+				symbolTable.put(name, dato.execute(symbolTable, lectorTortuga));
+			}
+		}catch (AsigException ex) {
+			System.out.println(ex.getMessage());
+		}
 		return null;
 	}
 
