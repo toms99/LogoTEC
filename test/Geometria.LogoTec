@@ -1,0 +1,10 @@
+Haz dist 50
+Haz ang 45
+repite 8 [
+	
+	repite 8 [AV dist
+			giraderecha ang
+	]
+	giraizquierda ang
+	AV dist
+]
