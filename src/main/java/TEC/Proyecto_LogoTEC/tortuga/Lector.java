@@ -1,3 +1,4 @@
+
 package TEC.Proyecto_LogoTEC.tortuga;
 
 import java.awt.*;
@@ -36,6 +37,14 @@ public class Lector {
                 w.clearOverlay();
                 w.drawImage(t.pic, t.getAF(tortuga, 50));
 
+                break;
+            case "borrapantalla":
+            	w.erase();
+            	t.penUp();
+            	t.GoTo(w.centerX, w.centerY);
+                t.penDown();
+                t.ponRumbo(90);
+                w.drawImage(t.pic, t.getAF(tortuga, 50));
                 break;
             case "retrocede":
 

@@ -129,6 +129,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitDato(@NotNull LogoTECParser.DatoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#mientras}.
+	 * @param ctx the parse tree
+	 */
+	void enterMientras(@NotNull LogoTECParser.MientrasContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#mientras}.
+	 * @param ctx the parse tree
+	 */
+	void exitMientras(@NotNull LogoTECParser.MientrasContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#definir_dir}.
 	 * @param ctx the parse tree
 	 */
@@ -178,6 +188,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMayor(@NotNull LogoTECParser.MayorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#definir_color}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#definir_color}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#rumbo}.
 	 * @param ctx the parse tree
@@ -319,6 +339,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitEsperar(@NotNull LogoTECParser.EsperarContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#si}.
+	 * @param ctx the parse tree
+	 */
+	void enterSi(@NotNull LogoTECParser.SiContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#si}.
+	 * @param ctx the parse tree
+	 */
+	void exitSi(@NotNull LogoTECParser.SiContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#ordenes_logicas}.
 	 * @param ctx the parse tree
 	 */
@@ -338,6 +368,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAnd(@NotNull LogoTECParser.AndContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#sisino}.
+	 * @param ctx the parse tree
+	 */
+	void enterSisino(@NotNull LogoTECParser.SisinoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#sisino}.
+	 * @param ctx the parse tree
+	 */
+	void exitSisino(@NotNull LogoTECParser.SisinoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#definir_coord}.
 	 * @param ctx the parse tree
@@ -378,6 +418,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCentrar(@NotNull LogoTECParser.CentrarContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#do_while}.
+	 * @param ctx the parse tree
+	 */
+	void enterDo_while(@NotNull LogoTECParser.Do_whileContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#do_while}.
+	 * @param ctx the parse tree
+	 */
+	void exitDo_while(@NotNull LogoTECParser.Do_whileContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#diferencia}.
 	 * @param ctx the parse tree

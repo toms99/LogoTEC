@@ -88,6 +88,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDato(@NotNull LogoTECParser.DatoContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#mientras}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMientras(@NotNull LogoTECParser.MientrasContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#definir_dir}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -117,6 +123,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMayor(@NotNull LogoTECParser.MayorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#definir_color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#rumbo}.
 	 * @param ctx the parse tree
@@ -202,6 +214,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEsperar(@NotNull LogoTECParser.EsperarContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#si}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSi(@NotNull LogoTECParser.SiContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#ordenes_logicas}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -213,6 +231,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAnd(@NotNull LogoTECParser.AndContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#sisino}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSisino(@NotNull LogoTECParser.SisinoContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#definir_coord}.
 	 * @param ctx the parse tree
@@ -237,6 +261,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCentrar(@NotNull LogoTECParser.CentrarContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#do_while}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDo_while(@NotNull LogoTECParser.Do_whileContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#diferencia}.
 	 * @param ctx the parse tree

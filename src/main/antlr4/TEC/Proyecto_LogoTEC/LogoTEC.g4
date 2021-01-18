@@ -33,33 +33,51 @@ programa returns [ASTNode node]: {
 
 ejecuta returns [ASTNode node]: DO PAR_CUAD_ABIERTO {
 						List<ASTNode> body = new ArrayList<ASTNode>();
-						} (ordenes_tortuga {body.add($ordenes_tortuga.node);})*  PAR_CUAD_CERRADO 
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})*  PAR_CUAD_CERRADO 
 						{$node = new Ejecuta(body);};
 
 repite returns [ASTNode node]: DO_N numero PAR_CUAD_ABIERTO {
 						List<ASTNode> body = new ArrayList<ASTNode>();
-						} (ordenes_tortuga {body.add($ordenes_tortuga.node);})* PAR_CUAD_CERRADO
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
 						{$node = new Repite(body, $numero.node);};
 
-/*si: IF condicion PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
-sisino: IF_ELSE condicion
-            PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO
-            PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
+si returns [ASTNode node]: IF condicion  PAR_CUAD_ABIERTO {
+						List<ASTNode> body = new ArrayList<ASTNode>();
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+						{$node = new Si($condicion.node, body);};
+						
+sisino returns [ASTNode node]: IF_ELSE condicion PAR_CUAD_ABIERTO {
+						List<ASTNode> ifBody = new ArrayList<ASTNode>();
+						List<ASTNode> elseBody = new ArrayList<ASTNode>();
+						} (sentencia_logoTEC {ifBody.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+            PAR_CUAD_ABIERTO (sentencia_logoTEC {elseBody.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+            {$node = new SiSiNo($condicion.node, ifBody, elseBody);};
 
-do_while: DO_WHILE PAR_CUAD_ABIERTO
-            sentencia_logoTEC* PAR_CUAD_CERRADO
-          PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO;
-mientras: PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
-            PAR_CUAD_ABIERTO sentencia_logoTEC* PAR_CUAD_CERRADO; 
+ do_while returns [ASTNode node]: DO_WHILE PAR_CUAD_ABIERTO {
+			List<ASTNode> body = new ArrayList<ASTNode>();
+			} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+            PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
+            {$node = new DoWhile($condicion.node, body);};
+          
+mientras returns [ASTNode node]: PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
+            PAR_CUAD_ABIERTO {
+			List<ASTNode> body = new ArrayList<ASTNode>();
+			} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+			{$node = new WhileDo($condicion.node, body);}; 
 
-sentencia_logoTEC: ejecuta | repite | si | sisino | sentencia_general | do_while | mientras;
+/*sentencia_logoTEC: ejecuta | repite | si;  | sisino | do_while | mientras;
 sentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo
                       | operacion_aritmetica | ordenes_listas | ordenes_tortuga; */
                       
 sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tortuga.node;}
 										| ordenes_variables {$node = $ordenes_variables.node;}
 										| ejecuta {$node = $ejecuta.node;}
-										| repite {$node = $repite.node;};             
+										| repite {$node = $repite.node;}   
+										| si {$node = $si.node;}
+										| sisino {$node = $sisino.node;}   
+										| do_while {$node = $do_while.node;}
+										| mientras {$node = $mientras.node;};
+										
 
 // Sentencias de variables 
 ordenes_variables returns [ASTNode node]: asignacion {$node = $asignacion.node;}
@@ -182,7 +200,8 @@ ordenes_tortuga returns [ASTNode node]: avanzar {$node = $avanzar.node;}
                  					  | definir_dir {$node = $definir_dir.node;} 
                  					  | rumbo {$node = $rumbo.node;} 
                  					  | centrar {$node = $centrar.node;} 
-                 					  | esperar {$node = $esperar.node;};
+                 					  | esperar {$node = $esperar.node;}
+                 					  | ordenes_lienzo {$node = $ordenes_lienzo.node;};
 
 avanzar returns [ASTNode node]: AVANZA numero {$node = new TortugaAvanza($numero.node);};
 retroceder returns [ASTNode node]: RETROCEDE numero {$node = new TortugaRetrocede($numero.node);};
@@ -212,13 +231,13 @@ centrar returns [ASTNode node]: CENTRO {$node = new TortugaCentro();};
 ordenes_lienzo returns [ASTNode node]: borrar {$node = $borrar.node;} 
 									 | dibujar {$node = $dibujar.node;}
 									 | no_dibujar {$node = $no_dibujar.node;} 
-									 /* | definir_color {$node = $definir_color.node;}*/ 
+									 | definir_color {$node = $definir_color.node;}
 									 | borra_pantalla {$node = $borra_pantalla.node;};
 
 borrar returns [ASTNode node]: BORRADOR {$node = new LienzoBorrar();};
 dibujar returns [ASTNode node]: BAJA_LAPIZ {$node = new LienzoDibujar();};
 no_dibujar returns [ASTNode node]: SUBE_LAPIZ {$node = new LienzoNoDibujar();};
-/*definir_color returns [ASTNode node]: COLOR ID;*/
+definir_color returns [ASTNode node]: COLOR ID {$node = new TortugaColor($ID.text);};
 
 borra_pantalla returns [ASTNode node]: BORRA_PANTALLA {$node = new LienzoBorrarPantalla();};
 
