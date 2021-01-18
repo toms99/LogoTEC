@@ -1,0 +1,12 @@
+Haz x 90
+Haz y 26
+PonCL azul
+Repite 10 [
+Repite 4 [
+GD x
+AV y
+]
+INIC y = Suma y 26
+GD 35
+]
+OT

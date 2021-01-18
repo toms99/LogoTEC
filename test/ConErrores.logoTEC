@@ -1,0 +1,9 @@
+Haz miVariableFavorita 5
+Haz otraVariable 9
+Haz OtraMas 9
+//No hay comentario
+para triangulo
+repite 3 (avanza 50 giraizquierda 120)
+end;
+Haz miVar 0
+Inic miVar "hola"

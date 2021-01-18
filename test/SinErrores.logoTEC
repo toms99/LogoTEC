@@ -1,0 +1,68 @@
+AVANZA 10
+AV producto 5 10
+RETROCEDE 10
+RE producto 5 10
+giraderecha 90
+GD 45
+giraizquierda 90
+GI 45
+OT
+OT OcultaTortuga
+AT
+aparecetortuga
+PonRumbo 90
+Muestra RUMBO
+PonX 100
+PonY 100
+GOMA
+GO
+BajaLapiz
+SubeLapiz
+PonCL azul
+PonColoLapiz azul
+
+Ejecuta [AV 10 GD 90]
+REPITE 4 [AVANZA 10 GiraDerecha 90]
+SI (mayorque? 10 2) [RE 10 GD 20]
+SISINO (iguales? var1 1)
+[RE 10 GD 20]
+[RE 25 GD 10]
+HAZ.HASTA [
+SI (iguales? numero 3) [RE 100]
+SI (iguales? var1 5) [AV 100]
+]
+[(iguales? bucle 1)]
+HAZ.MIENTRAS [
+SI (iguales? numero 3) [salida]
+SI (iguales? var 5) [salida]
+]
+[(iguales? bucle 1)]
+
+MIENTRAS [(iguales? bucle 1)]
+[
+SI (iguales? numero 3) [salida]
+SI (iguales? var 5) [salida]
+]
+
+Iguales? 10 Producto 2 5
+Y (mayorque? 10 5) (mayorque? 2 5)
+O (mayorque? 10 2) (mayorque? 2 5)
+MayorQue? 10 Producto 2 5
+MenorQue? 10 Producto 2 5
+giraizquierda Diferencia 100 45
+GD Azar 360
+AVANZA 10
+Producto 1 2 3 4 5
+RE Potencia 2 3
+Division 10 6
+Resto 10 3
+RETROCEDE Suma 1 2 3 4 5
+AVANZA Ultimo [ 10 20 15 12 ]
+GI Pri [ 45 90 135 180 225 ]
+AVANZA Elegir [ 10 20 15 12 ]
+
+
+
+
+
+

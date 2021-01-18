@@ -28,7 +28,7 @@ public class TortugaDefinirCoord implements ASTNode {
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		//int posX = (int) comandoX.execute(symbolTable, lectorTortuga);
 		//int posY = (int) comandoY.execute(symbolTable, lectorTortuga);
-		String texto = "ponpos [ " + String.valueOf(comandoX.execute(symbolTable, lectorTortuga)) 
+		String texto = "ponpos [" + String.valueOf(comandoX.execute(symbolTable, lectorTortuga)) 
 						+ " " + String.valueOf(comandoY.execute(symbolTable, lectorTortuga) + " ]");
 		lector.Texto(texto.split("\n"));
 		return null;
