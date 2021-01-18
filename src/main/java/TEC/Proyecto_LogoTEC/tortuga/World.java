@@ -66,6 +66,15 @@ public class World extends JFrame {
     public void clearOverlay() {
         this.og.clearRect(0, 0, this.overlay.getWidth(), this.overlay.getHeight());
     }
+    /**
+     * Limpia las lineas en el lienzo
+     */
+    public void erase() {
+        this.gg.clearRect(0, 0, this.ground.getWidth(), this.ground.getHeight());
+        this.blit();
+        
+       
+    }
 
     /**
      * agrega una tortuga al mundo
@@ -92,7 +101,7 @@ public class World extends JFrame {
     /**
      * Metodo para mostrar las nuevas lineas
      */
-    private void blit() {
+    public void blit() {
         this.bg.drawImage(this.ground,0,0, null);
         this.bg.drawImage(this.overlay, 0,0, null);
         this.fg.drawImage(this.back, 0,0, this);

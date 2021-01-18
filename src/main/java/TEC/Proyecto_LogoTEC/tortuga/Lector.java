@@ -39,9 +39,12 @@ public class Lector {
 
                 break;
             case "borrapantalla":
-            	w.clearOverlay();
-            	w.gg.clearRect(0, 0, w.ground.getWidth(), w.ground.getHeight());
-            	
+            	w.erase();
+            	t.penUp();
+            	t.GoTo(w.centerX, w.centerY);
+                t.penDown();
+                t.ponRumbo(90);
+                w.drawImage(t.pic, t.getAF(tortuga, 50));
             	break;
             case "retrocede":
 
