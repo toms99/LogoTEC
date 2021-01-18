@@ -11,15 +11,20 @@ public class IncrementaDos implements ASTNode {
 	private int res;
 	private int valor;
 	
-
+	/**
+	 * Constructor
+	 * @param name
+	 * @param valor
+	 */
 	public IncrementaDos(String name, int valor) {
 		super();
 		this.name = name;
 		this.valor = valor;
 	}
 
-
-
+	/**
+	 * Retorna el incremento del primer valor de entrada la cantidad de veces del segundo valor Integer de entrada 
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		dato = (ASTNode) symbolTable.get(name);

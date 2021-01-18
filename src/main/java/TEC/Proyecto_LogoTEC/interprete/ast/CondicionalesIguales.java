@@ -8,7 +8,11 @@ public class CondicionalesIguales implements ASTNode {
 	private ASTNode primerDato;
 	private ASTNode segundoDato;
 
-	
+	/**
+	 * Contructor
+	 * @param primerDato
+	 * @param segundoDato
+	 */
 	public CondicionalesIguales(ASTNode primerDato, ASTNode segundoDato) {
 		super();
 		this.primerDato = primerDato;
@@ -16,6 +20,9 @@ public class CondicionalesIguales implements ASTNode {
 	}
 
 
+	/**
+	 * Devuelve TRUE si ambos valores de entrada son iguales
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		return (primerDato.execute(symbolTable, lectorTortuga) == segundoDato.execute(symbolTable, lectorTortuga));

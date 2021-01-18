@@ -21,7 +21,7 @@ public class Println implements ASTNode {
 
 	/**
 	 * Finalmente, esta clase permite que se retorne el valor de la variable dentro
-	 * de la "memoria virtual" del lenguaje. La funcion de print esta deshabulitada.
+	 * de la "memoria virtual" del lenguaje. La funcion de print esta desabilitada.
 	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {

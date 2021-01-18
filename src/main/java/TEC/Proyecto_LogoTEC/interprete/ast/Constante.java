@@ -14,6 +14,10 @@ public class Constante implements ASTNode {
 		return valor;
 	}
 
+	/**
+	 * Contructor
+	 * @param valor
+	 */
 	public Constante(Object valor) {
 		super();
 		this.valor = valor;

@@ -6,11 +6,16 @@ import TEC.Proyecto_LogoTEC.tortuga.Lector;
 
 public class LienzoBorrarPantalla implements ASTNode {	
 	
+	/**
+	 * Constructor
+	 */
 	public LienzoBorrarPantalla() {
 		super();
 	}
 
-
+	/**
+	 * Borra las líneas en el lienzo
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		String texto = "borrapantalla";

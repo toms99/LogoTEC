@@ -10,12 +10,20 @@ public class Diferencia implements ASTNode {
 	private ASTNode operador2;
 	private int res;
 	
+	/**
+	 * Constructor
+	 * @param operador1
+	 * @param operador2
+	 */
 	public Diferencia(ASTNode operador1, ASTNode operador2) {
 		super();
 		this.operador1 = operador1;
 		this.operador2 = operador2;
 	}
 
+	/**
+	 * Recibe Integer como parámetros y retorna la diferencia 
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		res = (int)operador1.execute(symbolTable, lectorTortuga) - (int)operador2.execute(symbolTable, lectorTortuga);

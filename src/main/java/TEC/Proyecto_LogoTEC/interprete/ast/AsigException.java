@@ -4,11 +4,18 @@ public class AsigException extends Exception{
 	
 	private int codigoError;
 	
+	/**
+	 * Constructor
+	 * @param codigoError
+	 */
 	public AsigException (int codigoError) {
 		super();
 		this.codigoError=codigoError;
 	}
 
+	/**
+	 * Exception que despliega un mensaje de error semántico
+	 */
 	@Override
     public String getMessage(){
          

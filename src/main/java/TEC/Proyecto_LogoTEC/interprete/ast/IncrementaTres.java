@@ -10,13 +10,20 @@ public class IncrementaTres implements ASTNode {
 	private String var2;
 	private int res;
 	
+	/**
+	 * Constructor
+	 * @param var1
+	 * @param var2
+	 */
 	public IncrementaTres(String var1, String var2) {
 		super();
 		this.var1 = var1;
 		this.var2 = var2;
 	}
 
-
+	/**
+	 * Retorna el incremento del primer valor de entrada la cantidad de veces del segundo valor Integer de entrada, en caso de que el segundo valor sea una variable 
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		

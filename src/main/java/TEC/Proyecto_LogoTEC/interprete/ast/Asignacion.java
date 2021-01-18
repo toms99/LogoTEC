@@ -9,6 +9,11 @@ public class Asignacion implements ASTNode {
 	private String name;
 	private ASTNode dato;
 		
+	/**
+	 * Constructor
+	 * @param name
+	 * @param dato
+	 */
 	public Asignacion(String name, ASTNode dato) {
 		super();
 		this.name = name;
@@ -16,7 +21,7 @@ public class Asignacion implements ASTNode {
 	}
 
 	/*
-	 * Debe enviar arror al asignar un valor a una variable ya asignada**************
+	 * Asigna un valor a una variable aún no asignada
 	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {

@@ -9,7 +9,11 @@ public class CondicionalesOr implements ASTNode {
 	private ASTNode segundoDato;
 	
 	
-
+	/**
+	 * Constructor
+	 * @param primerDato
+	 * @param segundoDato
+	 */
 	public CondicionalesOr(ASTNode primerDato, ASTNode segundoDato) {
 		super();
 		this.primerDato = primerDato;
@@ -17,7 +21,9 @@ public class CondicionalesOr implements ASTNode {
 	}
 
 
-
+	/**
+	 * Retorna TRUE si al menos una de las condiciones es verdadera
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		Boolean valor1 = (Boolean) primerDato.execute(symbolTable, lectorTortuga); 

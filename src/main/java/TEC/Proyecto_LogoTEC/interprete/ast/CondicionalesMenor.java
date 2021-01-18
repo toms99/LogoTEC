@@ -9,7 +9,11 @@ public class CondicionalesMenor implements ASTNode {
 	private ASTNode segundoDato;
 	
 	
-
+	/**
+	 * Constructor
+	 * @param primerDato
+	 * @param segundoDato
+	 */
 	public CondicionalesMenor(ASTNode primerDato, ASTNode segundoDato) {
 		super();
 		this.primerDato = primerDato;
@@ -17,7 +21,9 @@ public class CondicionalesMenor implements ASTNode {
 	}
 
 
-
+	/**
+	 * Retorna TRUE si el primer valor de entrada ´primerDato´ es menor que el segundo valor de entrada 'segundoDato'
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		int valor1 = (int) primerDato.execute(symbolTable, lectorTortuga); 
