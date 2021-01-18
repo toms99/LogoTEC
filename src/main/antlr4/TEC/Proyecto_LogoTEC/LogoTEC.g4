@@ -33,33 +33,51 @@ programa returns [ASTNode node]: {
 
 ejecuta returns [ASTNode node]: DO PAR_CUAD_ABIERTO {
 						List<ASTNode> body = new ArrayList<ASTNode>();
-						} (ordenes_tortuga {body.add($ordenes_tortuga.node);})*  PAR_CUAD_CERRADO 
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})*  PAR_CUAD_CERRADO 
 						{$node = new Ejecuta(body);};
 
 repite returns [ASTNode node]: DO_N numero PAR_CUAD_ABIERTO {
 						List<ASTNode> body = new ArrayList<ASTNode>();
-						} (ordenes_tortuga {body.add($ordenes_tortuga.node);})* PAR_CUAD_CERRADO
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
 						{$node = new Repite(body, $numero.node);};
 
-/*si: IF condicion PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
-sisino: IF_ELSE condicion
-            PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO
-            PAR_CUAD_ABIERTO ordenes_tortuga* PAR_CUAD_CERRADO;
+si returns [ASTNode node]: IF condicion  PAR_CUAD_ABIERTO {
+						List<ASTNode> body = new ArrayList<ASTNode>();
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+						{$node = new Si($condicion.node, body);};
+						
+sisino returns [ASTNode node]: IF_ELSE condicion PAR_CUAD_ABIERTO {
+						List<ASTNode> ifBody = new ArrayList<ASTNode>();
+						List<ASTNode> elseBody = new ArrayList<ASTNode>();
+						} (sentencia_logoTEC {ifBody.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+            PAR_CUAD_ABIERTO (sentencia_logoTEC {elseBody.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+            {$node = new SiSiNo($condicion.node, ifBody, elseBody);};
 
-do_while: DO_WHILE PAR_CUAD_ABIERTO
-            sentencia_logoTEC* PAR_CUAD_CERRADO
-          PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO;
-mientras: PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
-            PAR_CUAD_ABIERTO sentencia_logoTEC* PAR_CUAD_CERRADO; 
+ do_while returns [ASTNode node]: DO_WHILE PAR_CUAD_ABIERTO {
+			List<ASTNode> body = new ArrayList<ASTNode>();
+			} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+            PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
+            {$node = new DoWhile($condicion.node, body);};
+          
+mientras returns [ASTNode node]: PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
+            PAR_CUAD_ABIERTO {
+			List<ASTNode> body = new ArrayList<ASTNode>();
+			} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
+			{$node = new WhileDo($condicion.node, body);}; 
 
-sentencia_logoTEC: ejecuta | repite | si | sisino | sentencia_general | do_while | mientras;
+/*sentencia_logoTEC: ejecuta | repite | si;  | sisino | do_while | mientras;
 sentencia_general: ordenes_variables | ordenes_logicas | ordenes_lienzo
                       | operacion_aritmetica | ordenes_listas | ordenes_tortuga; */
                       
 sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tortuga.node;}
 										| ordenes_variables {$node = $ordenes_variables.node;}
 										| ejecuta {$node = $ejecuta.node;}
-										| repite {$node = $repite.node;};             
+										| repite {$node = $repite.node;}   
+										| si {$node = $si.node;}
+										| sisino {$node = $sisino.node;}   
+										| do_while {$node = $do_while.node;}
+										| mientras {$node = $mientras.node;};
+										
 
 // Sentencias de variables 
 ordenes_variables returns [ASTNode node]: asignacion {$node = $asignacion.node;}

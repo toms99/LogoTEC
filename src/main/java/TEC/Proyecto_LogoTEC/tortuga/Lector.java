@@ -45,7 +45,7 @@ public class Lector {
                 t.penDown();
                 t.ponRumbo(90);
                 w.drawImage(t.pic, t.getAF(tortuga, 50));
-            	break;
+                break;
             case "retrocede":
 
                 t.backward(Double.parseDouble(partes[1]));

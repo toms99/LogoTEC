@@ -72,8 +72,8 @@ public class World extends JFrame {
     public void erase() {
         this.gg.clearRect(0, 0, this.ground.getWidth(), this.ground.getHeight());
         this.blit();
-        
-       
+
+
     }
 
     /**

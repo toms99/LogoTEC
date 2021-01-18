@@ -159,6 +159,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMientras(@NotNull LogoTECParser.MientrasContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMientras(@NotNull LogoTECParser.MientrasContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDefinir_dir(@NotNull LogoTECParser.Definir_dirContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -399,6 +411,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSi(@NotNull LogoTECParser.SiContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSi(@NotNull LogoTECParser.SiContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterOrdenes_logicas(@NotNull LogoTECParser.Ordenes_logicasContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -418,6 +442,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAnd(@NotNull LogoTECParser.AndContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSisino(@NotNull LogoTECParser.SisinoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSisino(@NotNull LogoTECParser.SisinoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -466,6 +502,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCentrar(@NotNull LogoTECParser.CentrarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDo_while(@NotNull LogoTECParser.Do_whileContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDo_while(@NotNull LogoTECParser.Do_whileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
