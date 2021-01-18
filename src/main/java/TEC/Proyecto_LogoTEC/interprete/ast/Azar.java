@@ -17,7 +17,7 @@ public class Azar implements ASTNode {
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		Random rand = new Random(); 
-		return rand.nextInt(Math.round((float) operador.execute(symbolTable, lectorTortuga)));
+		return rand.nextInt((int) operador.execute(symbolTable, lectorTortuga));
 	} 
 
 }

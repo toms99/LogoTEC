@@ -9,6 +9,11 @@ public class WhileDo implements ASTNode {
 	private ASTNode condition;
 	private List<ASTNode> body; 
 
+	/**
+	 * Constructor
+	 * @param condition
+	 * @param body
+	 */
 	public WhileDo(ASTNode condition, List<ASTNode> body) {
 		super();
 		this.condition = condition;
@@ -16,6 +21,10 @@ public class WhileDo implements ASTNode {
 	}
 
 	@Override
+	/**
+	 * Se encarga de ejecutar todas las instrucciones recolectadas
+	 * en el body, definido como una lista.
+	 */
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		while ((boolean)condition.execute(symbolTable, lectorTortuga)) {
 			for(ASTNode n : body) {

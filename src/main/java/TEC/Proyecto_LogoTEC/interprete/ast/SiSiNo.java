@@ -10,13 +10,23 @@ public class SiSiNo implements ASTNode {
 	private List<ASTNode> IfBody;
 	private List<ASTNode> ElseBody;
 
+	/**
+	 * Constructor.
+	 * @param condition
+	 * @param IfBody
+	 * @param ElseBody
+	 */
 	public SiSiNo(ASTNode condition, List<ASTNode> IfBody, List<ASTNode> ElseBody) {
 		super();
 		this.condition = condition;
-		this.IfBody = IfBody;
-		this.ElseBody = ElseBody;
+		this.IfBody = IfBody; // Cuerpo del if: sentencias dentro del if.
+		this.ElseBody = ElseBody; // Cuerpo del else: sentencias dentro del else.
 	}
 
+	/**
+	 * Se encarga de ejecutar las sentencias dentro de los cuerpos segun corresponda
+	 * a las condiciones booleanas.
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		if ((boolean)condition.execute(symbolTable, lectorTortuga)) {

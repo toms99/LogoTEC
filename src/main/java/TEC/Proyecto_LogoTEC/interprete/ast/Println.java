@@ -8,6 +8,10 @@ public class Println implements ASTNode {
 	
 	private ASTNode data;
 
+	/**
+	 * Constructor.
+	 * @param data
+	 */
 	public Println(ASTNode data) {
 		super();
 		this.data = data;
@@ -15,6 +19,10 @@ public class Println implements ASTNode {
 
 
 
+	/**
+	 * Finalmente, esta clase permite que se retorne el valor de la variable dentro
+	 * de la "memoria virtual" del lenguaje. La funcion de print esta deshabulitada.
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		//System.out.println(data.execute(symbolTable, null));

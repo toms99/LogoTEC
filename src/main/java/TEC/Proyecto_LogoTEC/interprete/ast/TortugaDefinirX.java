@@ -7,13 +7,21 @@ import TEC.Proyecto_LogoTEC.tortuga.Lector;
 public class TortugaDefinirX implements ASTNode {
 	private ASTNode comando;
 	
-	
+	/**
+	 * Constructor.
+	 * @param comando
+	 */
 	public TortugaDefinirX(ASTNode comando) {
 		super();
 		this.comando = comando;
 	}
 
 
+	/**
+	 * Llama a la instancia del lector (ventana de la tortuga)
+	 * y le envia el comanda correspondiente para que ejecute 
+	 * la accion de definir la posicion x de la tortuga.
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		//int pos = (int) comando.execute(symbolTable, lectorTortuga);

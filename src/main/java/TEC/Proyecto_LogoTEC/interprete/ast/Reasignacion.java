@@ -9,6 +9,11 @@ public class Reasignacion implements ASTNode {
 	private String name;
 	private ASTNode dato;
 		
+	/**
+	 * Constructor.
+	 * @param name
+	 * @param dato
+	 */
 	public Reasignacion(String name, ASTNode dato) {
 		super();
 		this.name = name;
@@ -16,6 +21,10 @@ public class Reasignacion implements ASTNode {
 	}
 
 
+	/**
+	 * Permite reasignar un valor a una variable que se encuentra dentro
+	 * de la tabla de simbolos o "memoria virtual" del lenguaje.
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		symbolTable.put(name, dato.execute(symbolTable, lectorTortuga));

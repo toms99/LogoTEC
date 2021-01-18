@@ -10,12 +10,21 @@ public class Repite implements ASTNode {
 	private List<ASTNode> body;
 	private ASTNode comando;
 
+	/**
+	 * Constructor.
+	 * @param body
+	 * @param veces
+	 */
 	public Repite(List<ASTNode> body, ASTNode veces) {
 		super();
-		this.body = body;
+		this.body = body; // cuerpo: contiene las sentencias a ejecutar.
 		this.comando = veces;
 	}
 
+	/**
+	 * Se encarga de repetir las instrucciones que se encuentran dentro del cuerpo
+	 * las veces que corresponda.
+	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		int veces = (int)  comando.execute(symbolTable, lectorTortuga);

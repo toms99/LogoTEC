@@ -10,6 +10,11 @@ public class Potencia implements ASTNode {
 	private ASTNode operador2;
 	private int res;
 	
+	/**
+	 * Constructor.
+	 * @param operador1
+	 * @param operador2
+	 */
 	public Potencia(ASTNode operador1, ASTNode operador2) {
 		super();
 		this.operador1 = operador1;
@@ -17,6 +22,9 @@ public class Potencia implements ASTNode {
 	}
 
 	@Override
+	/**
+	 * Retorna la potencia del operador1 ^ operador2 que procesa como Integer.
+	 */
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		res = (int) Math.pow((int)operador1.execute(symbolTable, lectorTortuga), (int)operador2.execute(symbolTable, lectorTortuga));
 		System.out.println(res);
