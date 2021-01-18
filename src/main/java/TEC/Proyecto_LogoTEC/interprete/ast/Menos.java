@@ -22,7 +22,7 @@ public class Menos implements ASTNode {
 	 */
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		return (-1 * (float) operador.execute(symbolTable, lectorTortuga));
+		return (-1 * (int) operador.execute(symbolTable, lectorTortuga));
 	} 
 
 }

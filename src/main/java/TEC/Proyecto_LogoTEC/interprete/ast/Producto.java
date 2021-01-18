@@ -28,7 +28,7 @@ public class Producto implements ASTNode {
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 		res = (int)operador1.execute(symbolTable, lectorTortuga) * (int)operador2.execute(symbolTable, lectorTortuga);
 		System.out.println(res);
-		return (int)operador1.execute(symbolTable, lectorTortuga) * (int)operador2.execute(symbolTable, lectorTortuga);
+		return res;
 	}
 
 }

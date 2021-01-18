@@ -29,6 +29,12 @@ programa returns [ASTNode node]: {
 		}
 };
 
+/*para returns [ASTNode node]: PARA ID {
+						List<ASTNode> body = new ArrayList<ASTNode>();
+						} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* FIN
+						{$node = new Para($ID.text, body);};*/
+
+
 /* Sentencias para funciones y ciclos */
 
 ejecuta returns [ASTNode node]: DO PAR_CUAD_ABIERTO {
@@ -59,7 +65,7 @@ sisino returns [ASTNode node]: IF_ELSE condicion PAR_CUAD_ABIERTO {
             PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
             {$node = new DoWhile($condicion.node, body);};
           
-mientras returns [ASTNode node]: PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
+mientras returns [ASTNode node]: WHILE PAR_CUAD_ABIERTO condicion PAR_CUAD_CERRADO
             PAR_CUAD_ABIERTO {
 			List<ASTNode> body = new ArrayList<ASTNode>();
 			} (sentencia_logoTEC {body.add($sentencia_logoTEC.node);})* PAR_CUAD_CERRADO
@@ -76,7 +82,9 @@ sentencia_logoTEC returns [ASTNode node]: ordenes_tortuga {$node = $ordenes_tort
 										| si {$node = $si.node;}
 										| sisino {$node = $sisino.node;}   
 										| do_while {$node = $do_while.node;}
-										| mientras {$node = $mientras.node;};
+										| mientras {$node = $mientras.node;}
+										| operacion_aritmetica {$node = $operacion_aritmetica.node;}
+										| ordenes_logicas {$node = $ordenes_logicas.node;};
 										
 
 // Sentencias de variables 
@@ -258,6 +266,8 @@ numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($E
 // Claves generales
 
 PROGRAMA: 'Programa';
+PARA: 'Para' | 'para';
+FIN: 'fin' | 'Fin';
 
 // Claves para variables
 HAZ: 'Haz';

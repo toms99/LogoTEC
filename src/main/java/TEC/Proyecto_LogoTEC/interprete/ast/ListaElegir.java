@@ -25,7 +25,7 @@ public class ListaElegir implements ASTNode {
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
 	   	Random rand = new Random(); 
 	   	ASTNode result = body.get(rand.nextInt(body.size()));
-		return null;
+		return result.execute(symbolTable, lectorTortuga);
 	}
 
 }
