@@ -79,15 +79,24 @@ incrementa returns [ASTNode node]:
 referencia returns [ASTNode node]: 
 			ID {$node = new ConstRef($ID.text);};
 
-/* Sentencias logicas   
-condicion: PAR_ABIERTO ordenes_logicas PAR_CERRADO;
-ordenes_logicas: iguales | and | or | mayor | menor;
+/* Sentencias logicas   */
+condicion returns [ASTNode node]: PAR_ABIERTO ordenes_logicas {$node = $ordenes_logicas.node;} PAR_CERRADO;
+ordenes_logicas returns [ASTNode node]: iguales {$node = $iguales.node;}
+									  | and {$node = $and.node;} 
+									  | or {$node = $or.node;}
+									  | mayor {$node = $mayor.node;} 
+									  | menor {$node = $menor.node;};
 
-iguales: IGUALES dato dato;
-and: AND condicion condicion;
-or: OR condicion condicion;
-mayor: MAYOR numero numero;
-menor: MENOR numero numero; */
+iguales returns [ASTNode node]: IGUALES d1 = dato {$node = $dato.node;} 
+										d2 = dato {$node = new CondicionalesIguales($node, $d2.node);};
+and returns [ASTNode node]: AND c1 = condicion {$node = $condicion.node;} 
+								c2 = condicion {$node = new CondicionalesAnd($node, $c2.node);};
+or returns [ASTNode node]: OR c1 = condicion {$node = $condicion.node;} 
+							  c2 = condicion {$node = new CondicionalesOr($node, $c2.node);};
+mayor returns [ASTNode node]: MAYOR n1 = numero {$node = $numero.node;} 
+							        n2 = numero {$node = new CondicionalesMayor($node, $n2.node);};
+menor returns [ASTNode node]: MENOR n1 = numero {$node = $numero.node;} 
+							        n2 = numero {$node = new CondicionalesMenor($node, $n2.node);};
 
 /*  Sentencias aritmeticas  */  
 operacion_aritmetica returns [ASTNode node]: suma {$node = $suma.node;} 
@@ -113,10 +122,10 @@ division returns [ASTNode node]: DIVISION n1 = numero {$node = $n1.node;}
 residuo returns [ASTNode node]: RESIDUO  n1 = numero {$node = $n1.node;} 
 								(n2 = numero {$node = new Residuo($node, $n2.node);});
  
-redondear returns [ASTNode node]: REDONDEO numero {$node = new Redondear($numero.node);};
+redondear returns [ASTNode node]: REDONDEO numero {$node = new Redondear($numero.node);}
+								| REDONDEO FLOAT {$node = new Redondear(new Constante(Float.parseFloat($FLOAT.text)));};
 azar returns [ASTNode node]: AZAR numero {$node = new Azar($numero.node);};
 menos returns [ASTNode node]: NEGATIVO numero {$node = new Menos($numero.node);}; 
-
 
 /* Sentencias de listas */
 
@@ -220,7 +229,6 @@ dato returns [ASTNode node]:  COMILLA ID COMILLA {$node = new Constante($ID.text
 							 /* | ID  */
 							  | numero {$node = $numero.node;};
 numero returns [ASTNode node]: ENTERO {$node = new Constante(Integer.parseInt($ENTERO.text));}
-							 | FLOAT {$node = new Constante(Float.parseFloat($FLOAT.text));}
 							 | ordenes_listas {$node = $ordenes_listas.node;}
 							 | referencia {$node = $referencia.node;}
 						     | operacion_aritmetica {$node = $operacion_aritmetica.node;}; 

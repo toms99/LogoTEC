@@ -1,4 +1,4 @@
-// Generated from TEC\Proyecto_LogoTEC\LogoTEC.g4 by ANTLR 4.5.1
+// Generated from LogoTEC.g4 by ANTLR 4.4
 package TEC.Proyecto_LogoTEC;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -11,7 +11,7 @@ import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class LogoTECLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.5.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.4", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -33,6 +33,18 @@ public class LogoTECLexer extends Lexer {
 		"DEFAULT_MODE"
 	};
 
+	public static final String[] tokenNames = {
+		"'\\u0000'", "'\\u0001'", "'\\u0002'", "'\\u0003'", "'\\u0004'", "'\\u0005'", 
+		"'\\u0006'", "'\\u0007'", "'\b'", "'\t'", "'\n'", "'\\u000B'", "'\f'", 
+		"'\r'", "'\\u000E'", "'\\u000F'", "'\\u0010'", "'\\u0011'", "'\\u0012'", 
+		"'\\u0013'", "'\\u0014'", "'\\u0015'", "'\\u0016'", "'\\u0017'", "'\\u0018'", 
+		"'\\u0019'", "'\\u001A'", "'\\u001B'", "'\\u001C'", "'\\u001D'", "'\\u001E'", 
+		"'\\u001F'", "' '", "'!'", "'\"'", "'#'", "'$'", "'%'", "'&'", "'''", 
+		"'('", "')'", "'*'", "'+'", "','", "'-'", "'.'", "'/'", "'0'", "'1'", 
+		"'2'", "'3'", "'4'", "'5'", "'6'", "'7'", "'8'", "'9'", "':'", "';'", 
+		"'<'", "'='", "'>'", "'?'", "'@'", "'A'", "'B'", "'C'", "'D'", "'E'", 
+		"'F'", "'G'", "'H'", "'I'"
+	};
 	public static final String[] ruleNames = {
 		"PROGRAMA", "HAZ", "INIC", "INC", "PRINTLN", "SUMA", "RESIDUO", "DIVISION", 
 		"POTENCIA", "PRODUCTO", "NEGATIVO", "DIFERENCIA", "REDONDEO", "AZAR", 
@@ -47,61 +59,6 @@ public class LogoTECLexer extends Lexer {
 		"SEMICOLON", "DOS_PUNTOS", "COMILLA", "ID", "ENTERO", "FLOAT", "ESPACIO_BLANCO"
 	};
 
-	private static final String[] _LITERAL_NAMES = {
-		null, "'Programa'", "'Haz'", "'INIC'", "'INC'", "'print'", null, null, 
-		null, null, null, null, null, null, null, null, null, "'Y'", "'O'", null, 
-		null, null, null, null, null, null, null, "'SISINO'", "'SI'", null, null, 
-		null, null, null, null, null, null, null, null, null, "'PonX'", "'PonY'", 
-		null, null, null, null, null, null, "'borrapantalla'", "'TRUE'", "'FALSE'", 
-		"'+'", "'*'", "'/'", "'>'", "'<'", "'='", "'!'", "'>='", "'<='", "'!='", 
-		"'{'", "'}'", "'('", "')'", "'['", "']'", "';'", "':'", "'\"'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, "PROGRAMA", "HAZ", "INIC", "INC", "PRINTLN", "SUMA", "RESIDUO", 
-		"DIVISION", "POTENCIA", "PRODUCTO", "NEGATIVO", "DIFERENCIA", "REDONDEO", 
-		"AZAR", "MAYOR", "MENOR", "AND", "OR", "IGUALES", "ELEMENTO_AZAR", "LONGITUD", 
-		"ULTIMO", "ELEMENTO_N", "PRIMERO_LISTA", "WHILE", "DO_WHILE", "IF_ELSE", 
-		"IF", "DO_N", "DO", "AVANZA", "RETROCEDE", "ESPERA", "GIRA_DERECHA", "GIRA_IZQUIERDA", 
-		"OCULTA_TORTUGA", "APARECE_TORTUGA", "CENTRO", "PON_POS", "PONX", "PONY", 
-		"PON_RUMBO", "RUMBO", "COLOR", "SUBE_LAPIZ", "BAJA_LAPIZ", "BORRADOR", 
-		"BORRA_PANTALLA", "TRUE", "FALSE", "MAS", "MULTI", "DIV", "MY", "MN", 
-		"ASIGNAR", "NOT", "MYI", "MNI", "NEQ", "BRACKET_ABIERTO", "BRACKET_CERRADO", 
-		"PAR_ABIERTO", "PAR_CERRADO", "PAR_CUAD_ABIERTO", "PAR_CUAD_CERRADO", 
-		"SEMICOLON", "DOS_PUNTOS", "COMILLA", "ID", "ENTERO", "FLOAT", "ESPACIO_BLANCO"
-	};
-	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
-
-	/**
-	 * @deprecated Use {@link #VOCABULARY} instead.
-	 */
-	@Deprecated
-	public static final String[] tokenNames;
-	static {
-		tokenNames = new String[_SYMBOLIC_NAMES.length];
-		for (int i = 0; i < tokenNames.length; i++) {
-			tokenNames[i] = VOCABULARY.getLiteralName(i);
-			if (tokenNames[i] == null) {
-				tokenNames[i] = VOCABULARY.getSymbolicName(i);
-			}
-
-			if (tokenNames[i] == null) {
-				tokenNames[i] = "<INVALID>";
-			}
-		}
-	}
-
-	@Override
-	@Deprecated
-	public String[] getTokenNames() {
-		return tokenNames;
-	}
-
-	@Override
-
-	public Vocabulary getVocabulary() {
-		return VOCABULARY;
-	}
-
 
 	public LogoTECLexer(CharStream input) {
 		super(input);
@@ -110,6 +67,9 @@ public class LogoTECLexer extends Lexer {
 
 	@Override
 	public String getGrammarFileName() { return "LogoTEC.g4"; }
+
+	@Override
+	public String[] getTokenNames() { return tokenNames; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
