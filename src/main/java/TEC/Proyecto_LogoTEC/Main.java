@@ -224,6 +224,7 @@ public class Main extends Application {
 		System.out.println("Interpreting file " + program);
 
 		try {
+			warningArea.clear();
 			LogoTECLexer lexer;
 			lexer = new LogoTECLexer(new ANTLRFileStream(program));
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
