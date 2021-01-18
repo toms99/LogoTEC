@@ -1,3 +1,11 @@
-Programa 
-	AV 50
-	Suma 45 67
+Haz x 90
+Haz y 26
+
+Repite 10 [
+Repite 4 [ 
+GD x
+AV y
+] 
+INIC y = Suma y 26
+GD 35]
+OT
