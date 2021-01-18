@@ -219,6 +219,18 @@ public class LogoTECBaseListener implements LogoTECListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterRumbo(@NotNull LogoTECParser.RumboContext ctx) { }
 	/**
 	 * {@inheritDoc}

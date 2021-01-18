@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 public class World extends JFrame {
 
-    private BufferedImage overlay, ground, back, front;
-    private Graphics2D og, gg, bg, fg;
+    public BufferedImage overlay, ground, back, front;
+    public Graphics2D og, gg, bg, fg;
 
     private ArrayList<Turtle> turtles;
 

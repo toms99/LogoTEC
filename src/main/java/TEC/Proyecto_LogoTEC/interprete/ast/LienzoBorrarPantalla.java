@@ -13,7 +13,7 @@ public class LienzoBorrarPantalla implements ASTNode {
 
 	@Override
 	public Object execute(Map<String, Object> symbolTable, Lector lectorTortuga) {
-		String texto = "subelapiz";
+		String texto = "borrapantalla";
 		lector.Texto(texto.split("\n"));
 		return null;
 	}

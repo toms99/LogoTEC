@@ -179,6 +179,16 @@ public interface LogoTECListener extends ParseTreeListener {
 	 */
 	void exitMayor(@NotNull LogoTECParser.MayorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LogoTECParser#definir_color}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LogoTECParser#definir_color}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LogoTECParser#rumbo}.
 	 * @param ctx the parse tree
 	 */

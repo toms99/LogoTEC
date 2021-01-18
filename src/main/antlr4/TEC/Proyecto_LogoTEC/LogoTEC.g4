@@ -182,7 +182,8 @@ ordenes_tortuga returns [ASTNode node]: avanzar {$node = $avanzar.node;}
                  					  | definir_dir {$node = $definir_dir.node;} 
                  					  | rumbo {$node = $rumbo.node;} 
                  					  | centrar {$node = $centrar.node;} 
-                 					  | esperar {$node = $esperar.node;};
+                 					  | esperar {$node = $esperar.node;}
+                 					  | ordenes_lienzo {$node = $ordenes_lienzo.node;};
 
 avanzar returns [ASTNode node]: AVANZA numero {$node = new TortugaAvanza($numero.node);};
 retroceder returns [ASTNode node]: RETROCEDE numero {$node = new TortugaRetrocede($numero.node);};
@@ -212,13 +213,13 @@ centrar returns [ASTNode node]: CENTRO {$node = new TortugaCentro();};
 ordenes_lienzo returns [ASTNode node]: borrar {$node = $borrar.node;} 
 									 | dibujar {$node = $dibujar.node;}
 									 | no_dibujar {$node = $no_dibujar.node;} 
-									 /* | definir_color {$node = $definir_color.node;}*/ 
+									 | definir_color {$node = $definir_color.node;}
 									 | borra_pantalla {$node = $borra_pantalla.node;};
 
 borrar returns [ASTNode node]: BORRADOR {$node = new LienzoBorrar();};
 dibujar returns [ASTNode node]: BAJA_LAPIZ {$node = new LienzoDibujar();};
 no_dibujar returns [ASTNode node]: SUBE_LAPIZ {$node = new LienzoNoDibujar();};
-/*definir_color returns [ASTNode node]: COLOR ID;*/
+definir_color returns [ASTNode node]: COLOR ID {$node = new TortugaColor($ID.text);};
 
 borra_pantalla returns [ASTNode node]: BORRA_PANTALLA {$node = new LienzoBorrarPantalla();};
 

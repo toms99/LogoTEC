@@ -118,6 +118,12 @@ public interface LogoTECVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMayor(@NotNull LogoTECParser.MayorContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link LogoTECParser#definir_color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefinir_color(@NotNull LogoTECParser.Definir_colorContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link LogoTECParser#rumbo}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
